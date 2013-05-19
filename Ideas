@@ -1,0 +1,20 @@
+a. Discuss fluff/mechanics first, or class structure?
+
+b. Discuss class structure
+
+  Game   						engine, has Board
+	GameBoard   				map, has Actors, Objects
+	Abst Actor  				active enemies
+	Abst Object  				useable items (e.g. health pick-ups, dropped weapons) 
+	Player ext Actor 			player character
+	Abstract Enemy ext Actor  	enemy template
+	
+c. Graphics style?
+d. Story? 
+e. Notifying player of decreasing speed of light?
+f. Weapon drops? Enemy classes? 
+g. Bounded/unbounded map? 
+
+...
+etc.
+...
