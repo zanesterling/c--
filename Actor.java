@@ -18,9 +18,9 @@ public class Actor {
 	}
 
 	public void update() {
-		for (Actor a : Main.game.actorsList)
+		for (Actor a : Main.game.actors)
 			collide(a);
-		for (Thing t : Main.game.thingsList)
+		for (Thing t : Main.game.things)
 			collide(t);
 		relativityUpdate();
 	}
