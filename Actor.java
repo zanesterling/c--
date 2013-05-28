@@ -4,7 +4,7 @@ public class Actor {
 
 	//coordinates
 	double x, y;
-	double px, py;
+	double vx, vy, vt;
 
 	BufferedImage img;
 
@@ -21,9 +21,11 @@ public class Actor {
 		relativityUpdate();
 	}
 
-	public void relativityUpdate() {
-		//Do the CBass things
+	public static double[] updateVectors(double dVx, double dVy) {
+		v = Lorentz.transform(
 	}
+
+	
 
 	
 }
