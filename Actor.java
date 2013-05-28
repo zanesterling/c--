@@ -16,4 +16,14 @@ public class Actor {
 
 		img = Util.loadImg(imgpath);
 	}
+
+	public void update() {
+		relativityUpdate();
+	}
+
+	public void relativityUpdate() {
+		//Do the CBass things
+	}
+
+	
 }
