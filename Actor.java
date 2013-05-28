@@ -18,12 +18,20 @@ public class Actor {
 	}
 
 	public void update() {
+		for (Actor a : Main.game.actorsList)
+			collide(a);
+		for (Thing t : Main.game.thingsList)
+			collide(t);
 		relativityUpdate();
 	}
 
 	public static double[] updateVectors(double dVx, double dVy) {
 		v = Lorentz.transform(
 	}
+
+	public void collide(Actor actor) {}
+
+	public void collide(Thing thing) {}
 
 	
 
