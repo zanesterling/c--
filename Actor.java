@@ -18,16 +18,16 @@ public class Actor {
 		img = Util.loadImg(imgpath);
 	}
 
-	public void update() {
+	public void update(double dVx, double dVy) { // These are passed in from the game board, or whoever knows the player's acceleration, as the player's acceleration.
 		for (Actor a : Main.game.actors)
 			collide(a);
 		for (Thing t : Main.game.things)
 			collide(t);
-		relativityUpdate();
+		updateVectors(dVx, dVy);
 	}
 
-	public double[] updateVectors(double dVx, double dVy) {
-		v = Lorentz.transform(vt, vx, vy, dVx, dVy);
+	public void updateVectors(double dVx, double dVy) {
+		double[] v = Lorentz.transform(vt, vx, vy, dVx, dVy);
 		vt = v[0];
 		vx = v[1];
 		vy = v[2];
@@ -39,7 +39,7 @@ public class Actor {
 
 	public void collide(Thing thing) {}
 
-	
+	public void collide(Actor actor) {}	
 
 	
 }
