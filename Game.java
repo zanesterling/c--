@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Game {
+public class Game implements KeyListener {
 
 	ArrayList<Actor> actors;
 	ArrayList<Thing> things;
@@ -15,6 +15,7 @@ public class Game {
 	}
 
 	public void tick() {
-
+		for (Actor a : actors)
+			a.update();
 	}
 }
