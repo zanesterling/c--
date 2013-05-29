@@ -14,7 +14,10 @@ public class Screen extends Bitmap {
 	}
 
 	public void render(Game game) {
+		g.setColor(Color.WHITE);
+		g.fillRect(0,0,800,600,null);
+		g.setColor(Color.BLACK);
 		for (Actor a : game.actors)
-			g.drawImage(a.img, (int)a.x, (int)a.y, null);
+			g.drawImage((int)a.x, (int)a.y, a.width, a.height, null);
 	}
 }

@@ -11,11 +11,9 @@ public class Actor {
 
 	int width, height;
 
-	public Actor(double x, double y, String imgpath) {
+	public Actor(double x, double y) {
 		this.x = x;
 		this.y = y;
-
-		img = Util.loadImg(imgpath);
 	}
 
 	public void update() {
