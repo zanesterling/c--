@@ -18,15 +18,17 @@ public class Actor {
 		img = Util.loadImg(imgpath);
 	}
 
-	public void update(double dVx, double dVy) { // These are passed in from the game board, or whoever knows the player's acceleration, as the player's acceleration.
+	public void update() {
 		for (Actor a : Main.game.actors)
 			collide(a);
 		for (Thing t : Main.game.things)
 			collide(t);
-		updateVectors(dVx, dVy);
+		updateVectors();
 	}
 
-	public void updateVectors(double dVx, double dVy) {
+	public void updateVectors() {
+		double dVx = Main.game.player.dVx;
+		double dVy = Main.game.player.dVy;
 		double[] v = Lorentz.transform(vt, vx, vy, dVx, dVy);
 		vt = v[0];
 		vx = v[1];
