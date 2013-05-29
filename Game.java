@@ -4,6 +4,7 @@ public class Game implements KeyListener {
 
 	ArrayList<Actor> actors;
 	ArrayList<Thing> things;
+	Player player;
 	public static double c; // This is the speed of light.
 
 	public Game() {
@@ -18,4 +19,11 @@ public class Game implements KeyListener {
 		for (Actor a : actors)
 			a.update();
 	}
+
+	public void keyPressed() {
+		
+	}
+
+	public void keyReleased() {}
+	public void keyTyped() {}
 }

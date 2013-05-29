@@ -11,7 +11,7 @@ public class Actor {
 
 	int width, height;
 
-	public Actor(int x, int y, String imgpath) {
+	public Actor(double x, double y, String imgpath) {
 		this.x = x;
 		this.y = y;
 
