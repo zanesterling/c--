@@ -1,6 +1,6 @@
 public class Lorentz {
 
-	public static double[] transform(double vx, double vy, double t, double dVx, double dVy) {
+	public static double[] transform(double t, double vx, double vy, double dVx, double dVy) {
 	    double[] v = new double[3]; 
 		double Bx = dVx / c;
 		double By = dVy / c;

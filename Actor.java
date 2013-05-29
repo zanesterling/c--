@@ -5,6 +5,7 @@ public class Actor {
 	//coordinates
 	double x, y;
 	double vx, vy, vt;
+	double dt;
 
 	BufferedImage img;
 
@@ -25,11 +26,16 @@ public class Actor {
 		relativityUpdate();
 	}
 
-	public static double[] updateVectors(double dVx, double dVy) {
-		v = Lorentz.transform(
+	public double[] updateVectors(double dVx, double dVy) {
+		v = Lorentz.transform(vt, vx, vy, dVx, dVy);
+		vt = v[0];
+		vx = v[1];
+		vy = v[2];
+		v = Lorentz.transform(0, x, y, dVx, dVy);
+		dt = v[0];
+		x = v[1];
+		y = v[2];
 	}
-
-	public void collide(Actor actor) {}
 
 	public void collide(Thing thing) {}
 
