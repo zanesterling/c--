@@ -2,16 +2,22 @@ import java.awt.image.BufferedImage;
 
 public class Actor {
 
+    static final int HEALTH;
+	static final int WEAPON;
+	
 	//coordinates
 	double x, y;
 	double vx, vy, vt;
 	double dt;
+	
+	Weapon _wep;
 
 	BufferedImage img;
 
-	int width, height;
+	int width, height, health;
 
 	public Actor(double x, double y) {
+	    health = HEALTH;
 		this.x = x;
 		this.y = y;
 	}

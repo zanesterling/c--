@@ -3,7 +3,7 @@ public abstract class Thing {
 	double x,y;
 	double radius;
 
-	BufferedImage img;
+	BufferedImage img;  	
 
 	public Thing(int x, int y) {
 		this.x = x;
