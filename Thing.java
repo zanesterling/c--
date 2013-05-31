@@ -5,10 +5,9 @@ public abstract class Thing {
 
 	BufferedImage img;
 
-	public Thing(int x, int y, String imgpath) {
+	public Thing(int x, int y) {
 		this.x = x;
 		this.y = y;
-		img = Util.loadImg(imgpath);
 	}     
 	
 	public void collide(Actor act) {
