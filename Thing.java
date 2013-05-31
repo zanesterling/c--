@@ -5,7 +5,7 @@ public abstract class Thing {
 
 	BufferedImage img;  	
 
-	public Thing(int x, int y) {
+	public Thing(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}     

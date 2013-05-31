@@ -4,6 +4,8 @@ public abstract class Weapon extends Thing{
 				_RoF,      // the integer val cooldown is set to once a player attacks
 				_ammo;     // amount of remaining ammunition
 
+	public Weapon(double x, double y){ super(x,y); }
+		
 	public void attack(){	// attack fxn, to be called by player
 		if(_cooldown > 0)
 			_cooldown--; 

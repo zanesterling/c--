@@ -1,24 +1,25 @@
 import java.awt.image.BufferedImage;
 
-public class Actor {
+public abstract class Actor {
 
     static final int HEALTH;
-	static final int WEAPON;
+	static final Weapon WEAPON;
 	
 	//coordinates
 	double x, y;
 	double vx, vy, vt;
 	double dt;
 	
-	Weapon _wep;
+	Weapon wep;
 
 	BufferedImage img;
 
-	int width, height, health;
+	int radius, health;
 
 	public Actor(double x, double y) {
 	    health = HEALTH;
-		this.x = x;
+		wep = WEAPON;
+		this.x = x;	
 		this.y = y;
 	}
 
@@ -48,4 +49,9 @@ public class Actor {
 	public void collide(Actor actor) {}	
 
 	
+	public void die(){
+	
+	}
+	
+	abstract void move();
 }
