@@ -68,10 +68,7 @@ public class Main extends Canvas implements Runnable {
 		}
 		
 		Graphics g = bs.getDrawGraphics();
-
-		for (int i=0; i<WIDTH*HEIGHT; i++)
-			pixels[i] = screen.pixels[i];
-		g.drawImage(img, 0,0, WIDTH, HEIGHT, this);
+		g.drawImage(screen.img, 0,0, WIDTH, HEIGHT, this);
 
 		bs.show();
 	}
@@ -101,6 +98,6 @@ public class Main extends Canvas implements Runnable {
 		frame.pack();
 		frame.setVisible(true);
 
-		game.start();
+		mainComponent.start();
 	}
 }
