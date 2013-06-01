@@ -7,6 +7,8 @@ public class Game implements KeyListener {
 	ArrayList<Thing> things;
 	Player player;
 
+	boolean[] keysPressed;
+
 	public static double c; // This is the speed of light.
 
 	public Game() {
@@ -14,10 +16,8 @@ public class Game implements KeyListener {
 		things = new ArrayList<Thing>();
 		player = new Player(0,0);
 		actors.add(player);
-	}
 
-	public void start() {
-
+		keysPressed = new int[4];
 	}
 
 	public void tick() {
@@ -26,9 +26,22 @@ public class Game implements KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		
+		switch(e.getKeyCode()) {
+			case KeyEvent.VK_W: keysPressed[0] = true;
+			case KeyEvent.VK_A: keysPressed[1] = true;
+			case KeyEvent.VK_S: keysPressed[2] = true;
+			case KeyEvent.VK_D: keysPressed[3] = true;
+		}
 	}
 
-	public void keyReleased(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {
+		switch(e.getKeyCode()) {
+			case KeyEvent.VK_W: keysPressed[0] = false;
+			case KeyEvent.VK_A: keysPressed[1] = false;
+			case KeyEvent.VK_S: keysPressed[2] = false;
+			case KeyEvent.VK_D: keysPressed[3] = false;
+		}
+	}
+
 	public void keyTyped(KeyEvent e) {}
 }
