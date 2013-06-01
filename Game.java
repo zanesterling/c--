@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.awt.event.KeyListener;
 
 public class Game implements KeyListener {
 
@@ -10,7 +11,7 @@ public class Game implements KeyListener {
 
 	public Game() {
 		actors = new ArrayList<Actor>();
-		player = new Player(0,0,
+		player = new Player(0,0);
 	}
 
 	public void start() {

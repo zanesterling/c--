@@ -1,5 +1,6 @@
 import java.awt.image.BufferedImage;
 import java.awt.Graphics;
+import java.awt.Color;
 
 public class Screen extends Bitmap {
 
