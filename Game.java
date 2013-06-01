@@ -17,7 +17,7 @@ public class Game implements KeyListener {
 		player = new Player(0,0);
 		actors.add(player);
 
-		keysPressed = new int[4];
+		keysPressed = new boolean[4];
 	}
 
 	public void tick() {
