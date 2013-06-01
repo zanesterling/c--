@@ -11,7 +11,9 @@ public class Game implements KeyListener {
 
 	public Game() {
 		actors = new ArrayList<Actor>();
+		things = new ArrayList<Thing>();
 		player = new Player(0,0);
+		actors.add(player);
 	}
 
 	public void start() {

@@ -15,10 +15,31 @@ public class Screen extends Bitmap {
 	}
 
 	public void render(Game game) {
-		g.setColor(Color.WHITE);
-		g.fillRect(0,0,800,600,null);
+		//repaint background
 		g.setColor(Color.BLACK);
+		g.fillRect(0,0,800,600);
+
+		//draw things
+		g.setColor(Color.BLUE);
+		for (Thing t : game.things)
+			drawThing(Thing t);
+
+		//draw actors
+		g.setColor(Color.WHITE);
 		for (Actor a : game.actors)
-			g.drawImage((int)a.x, (int)a.y, a.width, a.height, null);
+			drawActor(a);
+
+		//draw player
+		g.setColor(Color.RED);
+		drawActor(game.player);
+	}
+
+	public void drawThing(Thing t) {
+		g.fillRect((int)t.x, (int)t.y, 2*t.radius, 2*t.radius);
+	}
+
+	public void drawActor(Actor a) {
+		g.fillRect((int)a.x, (int)a.y, 2*a.radius, 2*a.radius);
+
 	}
 }
