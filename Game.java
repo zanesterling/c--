@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 
 public class Game implements KeyListener {
 
@@ -25,10 +25,10 @@ public class Game implements KeyListener {
 			a.update();
 	}
 
-	public void keyPressed() {
+	public void keyPressed(KeyEvent e) {
 		
 	}
 
-	public void keyReleased() {}
-	public void keyTyped() {}
+	public void keyReleased(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {}
 }
