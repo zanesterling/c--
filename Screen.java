@@ -22,7 +22,7 @@ public class Screen extends Bitmap {
 		//draw things
 		g.setColor(Color.BLUE);
 		for (Thing t : game.things)
-			drawThing(Thing t);
+			drawThing(t);
 
 		//draw actors
 		g.setColor(Color.WHITE);
@@ -35,11 +35,11 @@ public class Screen extends Bitmap {
 	}
 
 	public void drawThing(Thing t) {
-		g.fillRect((int)t.x, (int)t.y, 2*t.radius, 2*t.radius);
+		g.fillRect((int)t.x, (int)t.y, 2*(int)t.radius, 2*(int)t.radius);
 	}
 
 	public void drawActor(Actor a) {
-		g.fillRect((int)a.x, (int)a.y, 2*a.radius, 2*a.radius);
+		g.fillRect((int)a.x, (int)a.y, 2*(int)a.radius, 2*(int)a.radius);
 
 	}
 }
