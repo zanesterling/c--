@@ -15,6 +15,7 @@ public abstract class Actor {
 	public Actor(double x, double y) {
 		this.x = x;	
 		this.y = y;
+		radius = 10;
 	}
 
 	public void update() {
