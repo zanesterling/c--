@@ -6,6 +6,8 @@ double dVx, dVy;
 		super(x, y	);
     	health = 100; //dummy val
 		//init weapon
+		dVx = 5;
+		dVy = 5;
 	}
 
 	public void move(){
