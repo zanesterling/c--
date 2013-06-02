@@ -1,26 +1,31 @@
 public class Player extends Actor{	
 
 	double dVx, dVy;
+	double accelSpeed;
 
 	public Player(double x, double y){
 		super(x, y);
     	health = 100; //dummy val
-		dVx = dVy = 5;
+		accelSpeed = 0.125;
 		//set weapon
 	}
 
 	//performs player motion update given set of pressed keys
 	public void keyMove(boolean[] keys) {
-		x = 20;
-		if (keys[0] && !keys[2])
-			vy += 1;
-		else if (keys[2] && !keys[1])
-			vy -= 1;
+		dVx = dVy = 0;
 
-		if (keys[1] && !keys[3])
-			vx -= 1;
-		else if (keys[3] && !keys[1])
-			vx += 1;
+		if (keys[0])
+			dVy -= accelSpeed;
+		if (keys[2])
+			dVy += accelSpeed;
+
+		if (keys[1])
+			dVx -= accelSpeed;
+		if (keys[3])
+			dVx += accelSpeed;
+
+		vx += dVx;
+		vy += dVy;
 	}
 
 	//overrides Actor.update()

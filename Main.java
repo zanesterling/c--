@@ -12,8 +12,8 @@ import javax.swing.JFrame;
 
 public class Main extends Canvas implements Runnable {
 
-	static final int WIDTH = 800;
-	static final int HEIGHT = 600;
+	static final int WIDTH = 1200;
+	static final int HEIGHT = 900;
 
 	static JFrame frame;
 	Thread thread;
@@ -24,6 +24,8 @@ public class Main extends Canvas implements Runnable {
 
 	Screen screen;
 	static Game game;
+
+	static Main mainComponent;
 
 	public Main() {
 		Dimension size = new Dimension(WIDTH, HEIGHT);
@@ -85,10 +87,11 @@ public class Main extends Canvas implements Runnable {
 		}
 
 		System.out.println("Safe exit. Goodbye!");
+		System.exit(0);
 	}
 
 	public static void main(String[] args) {
-		Main mainComponent = new Main();
+		mainComponent = new Main();
 		
 		frame = new JFrame("Pert!");
 		frame.add(mainComponent);
