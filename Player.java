@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Player extends Actor{	
 
 	double dVx, dVy;
@@ -10,6 +12,12 @@ public class Player extends Actor{
 		accelSpeed = 0.125;
 		shiftFactor = 0.3333;
 		//set weapon
+
+		points = new ArrayList<int[]>();
+		points.add(new int[]{8,8});
+		points.add(new int[]{-8,8});
+		points.add(new int[]{-8,-8});
+		points.add(new int[]{8,-8});
 	}
 
 	//performs player motion update given set of pressed keys

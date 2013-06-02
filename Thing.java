@@ -1,11 +1,13 @@
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
-	public abstract class Thing {
+public abstract class Thing {
 
 	double x,y;
 	double radius;
 
-	BufferedImage img;  	
+	BufferedImage img;
+	ArrayList<int[]> points;
 
 	public Thing(double x, double y) {
 		this.x = x;
