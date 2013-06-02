@@ -1,10 +1,21 @@
+import java.util.ArrayList;
+
 public class BasicEnemy extends Enemy {
 
 	double accel;
 
 	public BasicEnemy(double x, double y) {
 		super(x,y);
-		accel = 5;
+		accel = 0.1;
+
+		radius = 8;
+		damage = 1;
+		
+		points = new ArrayList<int[]>();
+		
+		points.add(new int[]{0,-7});
+		points.add(new int[]{-7, 7});
+		points.add(new int[]{7, 7});
 	}
 
 	public void update() {
@@ -15,6 +26,13 @@ public class BasicEnemy extends Enemy {
 		vy += accel * Math.sin(theta);
 
 		super.update();
+
+		if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < Math.pow(radius + p.radius, 2))
+			attack(p);
 	}
 
+	public void attack(Player p) {
+		p.health -= damage;
+		die();
+	}
 }

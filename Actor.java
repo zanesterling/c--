@@ -1,4 +1,6 @@
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.awt.Color;
 
 public abstract class Actor {
 
@@ -6,11 +8,13 @@ public abstract class Actor {
 	double x, y;
 	double vx, vy; //vx and vy are about velocity in the obvious way
 	double vt; //vt is a measure of how much of the player's t coordinate is observed to elapse per unit time in the actor's reference frame
-	double dt; //this is a correction term used to measure how far off the actor's clock is from where it should be; in an ideal simulation it would be 0.
 	
 	Weapon wep;
 	BufferedImage img;
 	int radius, health;
+
+	ArrayList<int[]> points;
+	Color color;
 
 	public Actor(double x, double y) {
 		this.x = x;	
@@ -20,23 +24,23 @@ public abstract class Actor {
 
 	public void update() {
 		Player p = Main.game.player;
-		if (this == p)
-			dt = 0;
-		if (dt <= 1)
-			do {
-				x += vx;
-				y += vy;
-				for (Actor a : Main.game.actors)
-					collide(a);
-				for (Thing t : Main.game.things)
-					collide(t);
-				dt++;
-			} while (dt <= -1);
 
+		//update position
+		x += vx;
+		y += vy;
+
+		//do collisions
+		for (Actor a : Main.game.actors)
+			collide(a);
+		for (Thing t : Main.game.things)
+			collide(t);
+
+		//if the player has moved, warp this actor around it
 		if (this != p && p.dVx != 0 && p.dVy != 0)
 			updateVectors();
 	}
 
+	//warping function
 	public void updateVectors() {
 		double dVx = Main.game.player.dVx;
 		double dVy = Main.game.player.dVy;
@@ -44,8 +48,7 @@ public abstract class Actor {
 		vt = v[0];
 		vx = v[1];
 		vy = v[2];
-		v = Lorentz.transform(dt, x, y, dVx, dVy);
-		dt = v[0];
+		v = Lorentz.transform(0, x, y, dVx, dVy);
 		x = v[1];
 		y = v[2];
 	}
@@ -56,8 +59,11 @@ public abstract class Actor {
 
 	public void collide(Actor actor) {}	
 
-	
-	public void die(){ /* Implement die: remove image from screen, etc. */	}
+	public void die() {
+		for (int i=0; i<Main.game.actors.size(); i++)
+			if (this == Main.game.actors.get(i))
+				Main.game.actorDeathFlags.set(i, true);
+	}
 }
 
 

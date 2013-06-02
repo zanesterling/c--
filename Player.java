@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.awt.Color;
+
 public class Player extends Actor{	
 
 	double dVx, dVy;
@@ -6,10 +9,20 @@ public class Player extends Actor{
 
 	public Player(double x, double y){
 		super(x, y);
-    	health = 100; //dummy val
+    	health = 10; //dummy val
 		accelSpeed = 0.125;
 		shiftFactor = 0.3333;
 		//set weapon
+
+		radius = 8;
+
+		points = new ArrayList<int[]>();
+		points.add(new int[]{8,8});
+		points.add(new int[]{-8,8});
+		points.add(new int[]{-8,-8});
+		points.add(new int[]{8,-8});
+		
+		color = Color.RED;
 	}
 
 	//performs player motion update given set of pressed keys

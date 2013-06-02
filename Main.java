@@ -12,8 +12,8 @@ import javax.swing.JFrame;
 
 public class Main extends Canvas implements Runnable {
 
-	static final int WIDTH = 1200;
-	static final int HEIGHT = 900;
+	static final int WIDTH = 1250;
+	static final int HEIGHT = 950;
 
 	static JFrame frame;
 	Thread thread;
