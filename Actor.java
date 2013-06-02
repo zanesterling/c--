@@ -19,6 +19,8 @@ public abstract class Actor {
 	}
 
 	public void update() {
+		x += vx;
+		y += vy;
 		for (Actor a : Main.game.actors)
 			collide(a);
 		for (Thing t : Main.game.things)
