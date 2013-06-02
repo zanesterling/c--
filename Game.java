@@ -13,17 +13,17 @@ public class Game implements KeyListener {
 	double c; // This is the speed of light.
 
 	public Game() {
-		c = 10;
+		c = 300000000;
 
 		actors = new ArrayList<Actor>();
 		things = new ArrayList<Thing>();
 		player = new Player(0,0);
 		actors.add(player);
 
-		actors.add(new BasicEnemy(200,200));
-		actors.add(new BasicEnemy(-200,200));
-		actors.add(new BasicEnemy(200,-200));
-		actors.add(new BasicEnemy(-200,-200));
+		actors.add(new SpaceDebris(200,200));
+		actors.add(new SpaceDebris(-200,200));
+		actors.add(new SpaceDebris(200,-200));
+		actors.add(new SpaceDebris(-200,-200));
 
 		keysPressed = new boolean[4];
 	}

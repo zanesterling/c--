@@ -49,13 +49,10 @@ public class Screen extends Bitmap {
 
 	public void vectorDraw(Actor a) {
 		ArrayList<double[]> points = new ArrayList<double[]>();
-		if (a == Main.game.player) {
-			for (int[] point : a.points)
-				points.add(new double[]{point[0], point[1]});
-		} else {
-			for (int[] point : a.points)
-				points.add(Lorentz.contract(point[0], point[1], a.vx, a.vy));
-		}
+		for (int[] point : a.points)
+			points.add(new double[]{point[0], point[1]});
+		//for (int[] point : a.points)
+		//	points.add(Lorentz.contract(point[0], point[1], a.vx, a.vy));
 
 		for (int i=0; i<a.points.size()-1; i++) {
 			//join points and things
