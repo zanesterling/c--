@@ -26,30 +26,26 @@ public class Game implements KeyListener {
 
 	public void tick() {
 		for (Actor a : actors)
-			if (a != player)
-				a.update();
-
-		player.update();
-
-		for (boolean b : keysPressed)
-			System.out.print(b + " ");
+			a.update();
 	}
 
 	public void keyPressed(KeyEvent e) {
+		System.out.println("asdf");
 		switch(e.getKeyCode()) {
-			case KeyEvent.VK_W: keysPressed[0] = true; break;
-			case KeyEvent.VK_A: keysPressed[1] = true; break;
-			case KeyEvent.VK_S: keysPressed[2] = true; break;
-			case KeyEvent.VK_D: keysPressed[3] = true; break;
+			case KeyEvent.VK_W: keysPressed[0] = true;
+			case KeyEvent.VK_A: keysPressed[1] = true;
+			case KeyEvent.VK_S: keysPressed[2] = true;
+			case KeyEvent.VK_D: keysPressed[3] = true;
 		}
 	}
 
 	public void keyReleased(KeyEvent e) {
+		System.out.println("fsda");
 		switch(e.getKeyCode()) {
-			case KeyEvent.VK_W: keysPressed[0] = false; break;
-			case KeyEvent.VK_A: keysPressed[1] = false; break;
-			case KeyEvent.VK_S: keysPressed[2] = false; break;
-			case KeyEvent.VK_D: keysPressed[3] = false; break;
+			case KeyEvent.VK_W: keysPressed[0] = false;
+			case KeyEvent.VK_A: keysPressed[1] = false;
+			case KeyEvent.VK_S: keysPressed[2] = false;
+			case KeyEvent.VK_D: keysPressed[3] = false;
 		}
 	}
 
