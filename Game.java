@@ -12,7 +12,7 @@ public class Game implements KeyListener {
 	double c; // This is the speed of light.
 
 	public Game() {
-		c = 20;
+		c = 100;
 
 		actors = new ArrayList<Actor>();
 		things = new ArrayList<Thing>();

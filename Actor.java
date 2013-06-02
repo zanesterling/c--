@@ -19,6 +19,9 @@ public abstract class Actor {
 	}
 
 	public void update() {
+		Player p = Main.game.player;
+		if (this == p)
+			dt = 0;
 		if (dt <= 1)
 			do {
 				x += vx;
@@ -27,9 +30,9 @@ public abstract class Actor {
 					collide(a);
 				for (Thing t : Main.game.things)
 					collide(t);
+				dt++;
 			} while (dt <= -1);
 
-		Player p = Main.game.player;
 		if (this != p && p.dVx != 0 && p.dVy != 0)
 			updateVectors();
 	}
