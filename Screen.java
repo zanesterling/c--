@@ -52,9 +52,10 @@ public class Screen extends Bitmap {
             //draw gui
             for (int i=0; (i+1)*size<=width && i < game.player.health; i++) {
                 g.setColor(Color.WHITE);
-                g.fillRect(i*size, height-size, size, size);
+                g.drawOval(i*(size+10), height-size, size, size);
                 g.setColor(Color.RED);
-                g.fillRect(i*size+5, height-size+5, size-10, size-10);
+                g.drawRect(i*(size+10) + size/2 - 5, height-size+5, 10, size-10);
+                g.drawRect(i*(size+10)+ 5, height-size + size/2 - 5, size-10, 10);
             }
         }
 	}

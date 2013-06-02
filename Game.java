@@ -25,7 +25,7 @@ public class Game implements KeyListener {
 		add(player);
 
 		for (int i=0; i<10; i++)
-			add(new SpaceDebris(200, 50*i - 225));
+			add(new BasicEnemy(200, 50*i - 225));
 
 		keysPressed = new boolean[4];
 		over = false;

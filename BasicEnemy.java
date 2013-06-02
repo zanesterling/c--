@@ -6,14 +6,15 @@ public class BasicEnemy extends Enemy {
 
 	public BasicEnemy(double x, double y) {
 		super(x,y);
-		accel = 1;
+		accel = 0.1;
+
+		radius = 7;
 		
 		points = new ArrayList<int[]>();
 		
-		points.add(new int[]{5,  5});
-		points.add(new int[]{-5, 5});
-		points.add(new int[]{5, -5});
-		points.add(new int[]{5, -5});
+		points.add(new int[]{0,-radius});
+		points.add(new int[]{-radius, radius});
+		points.add(new int[]{radius, radius});
 	}
 
 	public void update() {

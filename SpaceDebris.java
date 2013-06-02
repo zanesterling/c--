@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.awt.Color;
 
 public class SpaceDebris extends Enemy {
@@ -11,6 +12,12 @@ public class SpaceDebris extends Enemy {
 		damage = 1;
 		
 		color = Color.WHITE;
+
+		points = new ArrayList<int[]>();
+		points.add(new int[]{radius,0});
+		points.add(new int[]{0,radius});
+		points.add(new int[]{-radius,0});
+		points.add(new int[]{0,-radius});
 	}
 
 	public void update() {
