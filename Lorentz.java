@@ -12,7 +12,7 @@ public class Lorentz {
 		return v;
 	}
 
-	public static double[] contract(xcor, ycor, vx, vy) {
+	public static double[] contract(double xcor, double ycor, double vx, double vy) {
 		double[] u = new double[2];
 		double inverseGamma = Math.sqrt(1 - vx * vx + vy * vy / (Game.c * Game.c));
 		double vFactor = (inverseGamma - 1) * (xcor * vx + ycor * vy) / (vx * vx + vy * vy);
