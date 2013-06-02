@@ -23,7 +23,10 @@ public abstract class Actor {
 			collide(a);
 		for (Thing t : Main.game.things)
 			collide(t);
-		updateVectors();
+
+		Player p = Main.game.player;
+		if (this != p || (p.dVx != 0 && p.dVy != 0))
+			updateVectors();
 	}
 
 	public void updateVectors() {

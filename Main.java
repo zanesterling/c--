@@ -25,11 +25,14 @@ public class Main extends Canvas implements Runnable {
 	Screen screen;
 	static Game game;
 
+	static Main mainComponent;
+
 	public Main() {
 		Dimension size = new Dimension(WIDTH, HEIGHT);
 		setPreferredSize(size);
 		setMaximumSize(size);
 		setMinimumSize(size);
+		setFocusable(true);
 
 		game = new Game();
 		screen = new Screen(WIDTH, HEIGHT);
@@ -85,14 +88,17 @@ public class Main extends Canvas implements Runnable {
 		}
 
 		System.out.println("Safe exit. Goodbye!");
+
+		System.exit(0);
 	}
 
 	public static void main(String[] args) {
-		Main mainComponent = new Main();
+		mainComponent = new Main();
 		
 		frame = new JFrame("Pert!");
 		frame.add(mainComponent);
 		frame.addKeyListener(game);
+		mainComponent.addKeyListener(game);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
