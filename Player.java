@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.awt.Color;
 
 public class Player extends Actor{	
 
@@ -18,6 +19,8 @@ public class Player extends Actor{
 		points.add(new int[]{-8,8});
 		points.add(new int[]{-8,-8});
 		points.add(new int[]{8,-8});
+		
+		color = Color.RED;
 	}
 
 	//performs player motion update given set of pressed keys

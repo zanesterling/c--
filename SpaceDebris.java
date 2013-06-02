@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public class SpaceDebris extends Enemy {
 
 	double accel;
@@ -7,6 +9,8 @@ public class SpaceDebris extends Enemy {
 		accel = 5000;
 		vx = 3;
 		damage = 1;
+		
+		color = Color.WHITE;
 	}
 
 	public void update() {

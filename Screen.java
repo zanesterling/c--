@@ -41,20 +41,13 @@ public class Screen extends Bitmap {
                     circleDraw(t);
 
             //draw actors
-            g.setColor(Color.WHITE);
-            for (Actor a : game.actors)
-                if (a != game.player)
-                    if (a.points != null)
-                        vectorDraw(a);
-                    else
-                        circleDraw(a);
-
-            //draw player
-            g.setColor(Color.RED);
-            if (game.player.points != null)
-                vectorDraw(game.player);
-            else
-                circleDraw(game.player);
+            for (Actor a : game.actors) {
+				g.setColor(a.color);
+				if (a.points != null)
+					vectorDraw(a);
+				else
+					circleDraw(a);
+			}
 
             //draw gui
             for (int i=0; (i+1)*size<=width && i < game.player.health; i++) {

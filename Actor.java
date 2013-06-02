@@ -1,5 +1,6 @@
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.awt.Color;
 
 public abstract class Actor {
 
@@ -13,6 +14,7 @@ public abstract class Actor {
 	int radius, health;
 
 	ArrayList<int[]> points;
+	Color color;
 
 	public Actor(double x, double y) {
 		this.x = x;	
