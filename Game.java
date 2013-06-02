@@ -20,10 +20,10 @@ public class Game implements KeyListener {
 		player = new Player(0,0);
 		actors.add(player);
 
-		actors.add(new TestActor(200,200));
-		actors.add(new TestActor(-200,200));
-		actors.add(new TestActor(200,-200));
-		actors.add(new TestActor(-200,-200));
+		actors.add(new BasicEnemy(200,200));
+		actors.add(new BasicEnemy(-200,200));
+		actors.add(new BasicEnemy(200,-200));
+		actors.add(new BasicEnemy(-200,-200));
 		
 
 		keysPressed = new boolean[4];
