@@ -4,7 +4,13 @@ public class BasicEnemy extends Enemy {
 
 	public BasicEnemy(double x, double y) {
 		super(x,y);
-		accel = 5;
+		accel = 1;
+		points = new ArrayList<int[]>();
+		
+		points.add(new int[]{5,  5});
+		points.add(new int[]{-5, 5});
+		points.add(new int[]{5, -5});
+		points.add(new int[]{5, -5});
 	}
 
 	public void update() {
