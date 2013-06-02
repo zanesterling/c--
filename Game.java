@@ -8,11 +8,12 @@ public class Game implements KeyListener {
 	Player player;
 
 	boolean[] keysPressed;
+	boolean shiftPressed;
 
 	double c; // This is the speed of light.
 
 	public Game() {
-		c = 100;
+		c = 10;
 
 		actors = new ArrayList<Actor>();
 		things = new ArrayList<Thing>();
@@ -41,6 +42,7 @@ public class Game implements KeyListener {
 			case KeyEvent.VK_A: keysPressed[1] = true; break;
 			case KeyEvent.VK_S: keysPressed[2] = true; break;
 			case KeyEvent.VK_D: keysPressed[3] = true; break;
+			case KeyEvent.VK_SHIFT: shiftPressed = true; break;
 			case KeyEvent.VK_Q: Main.mainComponent.stop();
 		}
 	}
@@ -51,6 +53,7 @@ public class Game implements KeyListener {
 			case KeyEvent.VK_A: keysPressed[1] = false; break;
 			case KeyEvent.VK_S: keysPressed[2] = false; break;
 			case KeyEvent.VK_D: keysPressed[3] = false; break;
+			case KeyEvent.VK_SHIFT: shiftPressed = true; break;
 		}
 	}
 
