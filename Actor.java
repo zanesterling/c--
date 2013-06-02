@@ -47,8 +47,6 @@ public abstract class Actor {
 
 	
 	public void die(){ /* Implement die: remove image from screen, etc. */	}
-	
-	abstract void move();
 }
 
 

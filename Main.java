@@ -92,6 +92,7 @@ public class Main extends Canvas implements Runnable {
 		
 		frame = new JFrame("Pert!");
 		frame.add(mainComponent);
+		frame.addKeyListener(game);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

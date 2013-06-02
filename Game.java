@@ -17,6 +17,8 @@ public class Game implements KeyListener {
 		player = new Player(0,0);
 		actors.add(player);
 
+		actors.add(new TestActor(100,150));
+
 		keysPressed = new boolean[4];
 	}
 
@@ -26,6 +28,7 @@ public class Game implements KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
+		System.out.println("asdf");
 		switch(e.getKeyCode()) {
 			case KeyEvent.VK_W: keysPressed[0] = true;
 			case KeyEvent.VK_A: keysPressed[1] = true;
@@ -35,6 +38,7 @@ public class Game implements KeyListener {
 	}
 
 	public void keyReleased(KeyEvent e) {
+		System.out.println("fsda");
 		switch(e.getKeyCode()) {
 			case KeyEvent.VK_W: keysPressed[0] = false;
 			case KeyEvent.VK_A: keysPressed[1] = false;

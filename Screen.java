@@ -17,7 +17,7 @@ public class Screen extends Bitmap {
 	public void render(Game game) {
 		//repaint background
 		g.setColor(Color.BLACK);
-		g.fillOval(0,0,800,600);
+		g.fillRect(0,0,800,600);
 
 		//draw things
 		g.setColor(Color.BLUE);
@@ -27,7 +27,8 @@ public class Screen extends Bitmap {
 		//draw actors
 		g.setColor(Color.WHITE);
 		for (Actor a : game.actors)
-			drawActor(a);
+			if (a != game.player)
+				drawActor(a);
 
 		//draw player
 		g.setColor(Color.RED);
@@ -35,11 +36,14 @@ public class Screen extends Bitmap {
 	}
 
 	public void drawThing(Thing t) {
-		g.fillOval((int)t.x, (int)t.y, 2*(int)t.radius, 2*(int)t.radius);
+		int x = (int)t.x + width / 2;
+		int y = (int)t.y + height / 2;
+		g.fillOval(x, y, 2*(int)t.radius, 2*(int)t.radius);
 	}
 
 	public void drawActor(Actor a) {
-		g.fillOval((int)a.x, (int)a.y, 2*(int)a.radius, 2*(int)a.radius);
-
+		int x = (int)a.x + width / 2;
+		int y = (int)a.y + height / 2;
+		g.fillOval(x, y, 2*(int)a.radius, 2*(int)a.radius);
 	}
 }
