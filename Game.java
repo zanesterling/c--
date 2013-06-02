@@ -4,11 +4,14 @@ import java.awt.event.*;
 public class Game implements KeyListener {
 
 	ArrayList<Actor> actors;
+	ArrayList<Boolean> actorDeathFlags;
 	ArrayList<Thing> things;
 	Player player;
 
 	boolean[] keysPressed;
 	boolean shiftPressed;
+
+	boolean over;
 
 	double c; // This is the speed of light.
 
@@ -16,23 +19,41 @@ public class Game implements KeyListener {
 		c = 300000000;
 
 		actors = new ArrayList<Actor>();
+		actorDeathFlags = new ArrayList<Boolean>();
 		things = new ArrayList<Thing>();
 		player = new Player(0,0);
-		actors.add(player);
+		add(player);
 
-		actors.add(new SpaceDebris(200,200));
-		actors.add(new SpaceDebris(-200,200));
-		actors.add(new SpaceDebris(200,-200));
-		actors.add(new SpaceDebris(-200,-200));
+		for (int i=0; i<10; i++)
+			add(new SpaceDebris(200, 50*i - 225));
 
 		keysPressed = new boolean[4];
+		over = false;
 	}
 
 	public void tick() {
 		for (Actor a : actors)
 			a.update();
 
+		for (int i=0; i<actors.size(); i++)
+			if (actorDeathFlags.get(i) == Boolean.TRUE) {
+				actors.remove(i);
+				actorDeathFlags.remove(i);
+			}
+
 		System.out.println(Math.sqrt(player.vx*player.vx + player.vy*player.vy));
+
+		if (player.health <= 0)
+			end();
+	}
+
+	public void end() {
+		over = true;
+	}
+
+	public void add(Actor a) {
+		actors.add(a);
+		actorDeathFlags.add(false);
 	}
 
 	public void keyPressed(KeyEvent e) {

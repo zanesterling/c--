@@ -57,8 +57,11 @@ public abstract class Actor {
 
 	public void collide(Actor actor) {}	
 
-	
-	public void die(){ /* Implement die: remove image from screen, etc. */	}
+	public void die() {
+		for (int i=0; i<Main.game.actors.size(); i++)
+			if (this == Main.game.actors.get(i))
+				Main.game.actorDeathFlags.set(i, true);
+	}
 }
 
 

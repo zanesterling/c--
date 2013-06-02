@@ -8,7 +8,7 @@ public class Player extends Actor{
 
 	public Player(double x, double y){
 		super(x, y);
-    	health = 100; //dummy val
+    	health = 10; //dummy val
 		accelSpeed = 0.125;
 		shiftFactor = 0.3333;
 		//set weapon
@@ -46,5 +46,7 @@ public class Player extends Actor{
 	public void update() {
 		keyMove(Main.game.keysPressed);
 		super.update();
+
+		System.out.println(health);
 	}
 }

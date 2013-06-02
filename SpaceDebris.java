@@ -5,10 +5,11 @@ public class SpaceDebris extends Enemy {
 	public SpaceDebris(double x, double y) {
 		super(x,y);
 		accel = 5000;
+		vx = 3;
+		damage = 1;
 	}
 
 	public void update() {
-		System.out.println("space update" + vx + " " + vy);
 		Player p = Main.game.player;
 		double theta = Math.atan2(p.y - y, p.x - x);
 		double distanceSquared = (p.y - y) * (p.y - y) + (p.x - x) * (p.x - x);
@@ -17,6 +18,13 @@ public class SpaceDebris extends Enemy {
 		vy += accel * Math.sin(theta) / distanceSquared;
 
 		super.update();
+
+		if (distanceSquared < (radius+p.radius)*(radius+p.radius))
+			attack(p);
 	}
 
+	public void attack(Player p) {
+		p.health -= damage;
+		die();
+	}
 }
