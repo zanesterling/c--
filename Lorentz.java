@@ -18,9 +18,7 @@ public class Lorentz {
 		double vFactor = (inverseGamma - 1) * (xcor * vx + ycor * vy) / (vx * vx + vy * vy);
 		u[0] = xcor + vFactor * vx;
 		u[1] = ycor + vFactor * vy;
+		return u;
 	}
-
-	
-
 	
 }
