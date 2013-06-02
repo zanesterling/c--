@@ -12,14 +12,18 @@ public class Game implements KeyListener {
 	double c; // This is the speed of light.
 
 	public Game() {
-		c = 300000000;
+		c = 20;
 
 		actors = new ArrayList<Actor>();
 		things = new ArrayList<Thing>();
 		player = new Player(0,0);
 		actors.add(player);
 
-		actors.add(new TestActor(100,100));
+		actors.add(new TestActor(200,200));
+		actors.add(new TestActor(-200,200));
+		actors.add(new TestActor(200,-200));
+		actors.add(new TestActor(-200,-200));
+		
 
 		keysPressed = new boolean[4];
 	}
@@ -27,6 +31,8 @@ public class Game implements KeyListener {
 	public void tick() {
 		for (Actor a : actors)
 			a.update();
+
+		System.out.println(Math.sqrt(player.vx*player.vx + player.vy*player.vy));
 	}
 
 	public void keyPressed(KeyEvent e) {
