@@ -8,13 +8,14 @@ public class BasicEnemy extends Enemy {
 		super(x,y);
 		accel = 0.1;
 
-		radius = 7;
+		radius = 8;
+		damage = 1;
 		
 		points = new ArrayList<int[]>();
 		
-		points.add(new int[]{0,-radius});
-		points.add(new int[]{-radius, radius});
-		points.add(new int[]{radius, radius});
+		points.add(new int[]{0,-7});
+		points.add(new int[]{-7, 7});
+		points.add(new int[]{7, 7});
 	}
 
 	public void update() {
@@ -25,6 +26,13 @@ public class BasicEnemy extends Enemy {
 		vy += accel * Math.sin(theta);
 
 		super.update();
+
+		if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < radius + p.radius)
+			attack(p);
 	}
 
+	public void attack(Player p) {
+		p.health -= damage;
+		die();
+	}
 }

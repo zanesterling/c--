@@ -15,6 +15,8 @@ public class Game implements KeyListener {
 
 	double c; // This is the speed of light.
 
+	long ticks;
+
 	public Game() {
 		c = 300000000;
 
@@ -29,9 +31,12 @@ public class Game implements KeyListener {
 
 		keysPressed = new boolean[4];
 		over = false;
+		ticks = 0;
 	}
 
 	public void tick() {
+		if (ticks%100 == 0)
+			add(new BasicEnemy(0,100));
 		for (Actor a : actors)
 			a.update();
 
@@ -45,6 +50,8 @@ public class Game implements KeyListener {
 
 		if (player.health <= 0)
 			end();
+
+		ticks++;
 	}
 
 	public void end() {

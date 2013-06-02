@@ -71,19 +71,19 @@ public class Screen extends Bitmap {
 
 		for (int i=0; i<a.points.size()-1; i++) {
 			//join points and things
-			int x1 = (int)points.get(i)[0] - a.radius + (int)(a.x - Main.game.player.x) + width / 2;
-			int y1 = (int)points.get(i)[1] - a.radius + (int)(a.y - Main.game.player.y) + height / 2;
-			int x2 = (int)points.get(i+1)[0] - a.radius + (int)(a.x - Main.game.player.x) + width / 2;
-			int y2 = (int)points.get(i+1)[1] - a.radius + (int)(a.y - Main.game.player.y) + height / 2;
+			int x1 = (int)points.get(i)[0] + (int)(a.x - Main.game.player.x) + width / 2;
+			int y1 = (int)points.get(i)[1] + (int)(a.y - Main.game.player.y) + height / 2;
+			int x2 = (int)points.get(i+1)[0] + (int)(a.x - Main.game.player.x) + width / 2;
+			int y2 = (int)points.get(i+1)[1] + (int)(a.y - Main.game.player.y) + height / 2;
 
 			g.drawLine(x1, y1, x2, y2);
 		}
 
 		//join first point to last point (close the figure)
-		int x1 = (int)points.get(a.points.size()-1)[0] - a.radius + (int)(a.x - Main.game.player.x) + width / 2;
-		int y1 = (int)points.get(a.points.size()-1)[1] - a.radius + (int)(a.y - Main.game.player.y) + height / 2;
-		int x2 = (int)points.get(0)[0] - a.radius + (int)(a.x - Main.game.player.x) + width / 2;
-		int y2 = (int)points.get(0)[1] - a.radius + (int)(a.y - Main.game.player.y) + height / 2;
+		int x1 = (int)points.get(a.points.size()-1)[0] + (int)(a.x - Main.game.player.x) + width / 2;
+		int y1 = (int)points.get(a.points.size()-1)[1] + (int)(a.y - Main.game.player.y) + height / 2;
+		int x2 = (int)points.get(0)[0] + (int)(a.x - Main.game.player.x) + width / 2;
+		int y2 = (int)points.get(0)[1] + (int)(a.y - Main.game.player.y) + height / 2;
 
 		g.drawLine(x1, y1, x2, y2);
 	}

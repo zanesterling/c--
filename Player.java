@@ -14,6 +14,8 @@ public class Player extends Actor{
 		shiftFactor = 0.3333;
 		//set weapon
 
+		radius = 8;
+
 		points = new ArrayList<int[]>();
 		points.add(new int[]{8,8});
 		points.add(new int[]{-8,8});
@@ -49,7 +51,5 @@ public class Player extends Actor{
 	public void update() {
 		keyMove(Main.game.keysPressed);
 		super.update();
-
-		System.out.println(health);
 	}
 }
