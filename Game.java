@@ -9,15 +9,17 @@ public class Game implements KeyListener {
 
 	boolean[] keysPressed;
 
-	public static double c; // This is the speed of light.
+	double c; // This is the speed of light.
 
 	public Game() {
+		c = 300000000;
+
 		actors = new ArrayList<Actor>();
 		things = new ArrayList<Thing>();
 		player = new Player(0,0);
 		actors.add(player);
 
-		actors.add(new TestActor(100,150));
+		actors.add(new TestActor(100,100));
 
 		keysPressed = new boolean[4];
 	}
