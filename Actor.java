@@ -1,4 +1,5 @@
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public abstract class Actor {
 
@@ -11,6 +12,8 @@ public abstract class Actor {
 	BufferedImage img;
 	int radius, health;
 
+	ArrayList<int[]> points;
+
 	public Actor(double x, double y) {
 		this.x = x;	
 		this.y = y;
@@ -19,17 +22,23 @@ public abstract class Actor {
 
 	public void update() {
 		Player p = Main.game.player;
+
+		//update position
 		x += vx;
 		y += vy;
+
+		//do collisions
 		for (Actor a : Main.game.actors)
 			collide(a);
 		for (Thing t : Main.game.things)
 			collide(t);
 
+		//if the player has moved, warp this actor around it
 		if (this != p && p.dVx != 0 && p.dVy != 0)
 			updateVectors();
 	}
 
+	//warping function
 	public void updateVectors() {
 		double dVx = Main.game.player.dVx;
 		double dVy = Main.game.player.dVy;
