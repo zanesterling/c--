@@ -19,17 +19,19 @@ public abstract class Actor {
 	}
 
 	public void update() {
-		x += vx;
-		y += vy;
-
-		for (Actor a : Main.game.actors)
-			collide(a);
-		for (Thing t : Main.game.things)
-			collide(t);
+		if (dt <= 1)
+			do {
+				x += vx;
+				y += vy;
+				for (Actor a : Main.game.actors)
+					collide(a);
+				for (Thing t : Main.game.things)
+					collide(t);
+			} while (dt <= -1);
 
 		Player p = Main.game.player;
-		if (this != p && (p.dVx != 0 && p.dVy != 0))
-		updateVectors();
+		if (this != p && p.dVx != 0 && p.dVy != 0)
+			updateVectors();
 	}
 
 	public void updateVectors() {
@@ -39,7 +41,7 @@ public abstract class Actor {
 		vt = v[0];
 		vx = v[1];
 		vy = v[2];
-		v = Lorentz.transform(0, x, y, dVx, dVy);
+		v = Lorentz.transform(dt, x, y, dVx, dVy);
 		dt = v[0];
 		x = v[1];
 		y = v[2];
