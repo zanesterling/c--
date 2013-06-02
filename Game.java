@@ -53,7 +53,7 @@ public class Game implements KeyListener {
 			case KeyEvent.VK_A: keysPressed[1] = false; break;
 			case KeyEvent.VK_S: keysPressed[2] = false; break;
 			case KeyEvent.VK_D: keysPressed[3] = false; break;
-			case KeyEvent.VK_SHIFT: shiftPressed = true; break;
+			case KeyEvent.VK_SHIFT: shiftPressed = false; break;
 		}
 	}
 
