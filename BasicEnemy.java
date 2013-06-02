@@ -4,7 +4,7 @@ public class BasicEnemy extends Enemy {
 
 	public BasicEnemy(double x, double y) {
 		super(x,y);
-		accel = 5;
+		accel = 1;
 	}
 
 	public void update() {
