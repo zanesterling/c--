@@ -10,6 +10,7 @@ public class BasicEnemy extends Enemy {
 
 		radius = 8;
 		damage = 1;
+		health = 1;
 		
 		points = new ArrayList<int[]>();
 		

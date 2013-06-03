@@ -23,6 +23,7 @@ public class Pistol extends Weapon {
 
 	public void recover() {
 		firedSinceClick = false;
+		super.recover();
 	}
 
 	public void doAttack(){
