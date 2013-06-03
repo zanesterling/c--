@@ -4,8 +4,12 @@ import java.awt.event.*;
 public class Game implements KeyListener, MouseListener {
 
 	ArrayList<Actor> actors;
-	ArrayList<Boolean> actorDeathFlags;
 	ArrayList<Thing> things;
+	ArrayList<Boolean> actorDeathFlags;
+	ArrayList<Boolean> thingDeathFlags;
+	ArrayList<Actor> actorsToAdd;
+	ArrayList<Thing> thingsToAdd;
+
 	Player player;
 
 	boolean[] keysPressed;
@@ -22,13 +26,17 @@ public class Game implements KeyListener, MouseListener {
 		c = 300000000;
 
 		actors = new ArrayList<Actor>();
-		actorDeathFlags = new ArrayList<Boolean>();
 		things = new ArrayList<Thing>();
+		actorsToAdd = new ArrayList<Actor>();
+		thingsToAdd = new ArrayList<Thing>();
+		actorDeathFlags = new ArrayList<Boolean>();
+		thingDeathFlags = new ArrayList<Boolean>();
+		
 		player = new Player(0,0);
-		add(player);
+		addActor(player);
 
 		for (int i=0; i<10; i++)
-			add(new BasicEnemy(200, 50*i - 225));
+			addActor(new BasicEnemy(200, 50*i - 225));
 
 		keysPressed = new boolean[4];
 		over = false;
@@ -39,14 +47,30 @@ public class Game implements KeyListener, MouseListener {
 
 	public void tick() {
 		if (ticks%100 == 0)
-			add(new BasicEnemy(0,100));
+			addActor(new BasicEnemy(0,100));
+
 		for (Actor a : actors)
 			a.update();
+
+		for (Actor a : actorsToAdd)
+			actors.add(a);
+		actorsToAdd = new ArrayList<Actor>();
+
+		for (Thing t : thingsToAdd)
+			things.add(t);
+		thingsToAdd = new ArrayList<Thing>();
 
 		for (int i=0; i<actors.size(); i++)
 			if (actorDeathFlags.get(i) == Boolean.TRUE) {
 				actors.remove(i);
 				actorDeathFlags.remove(i);
+				i--;
+			}
+
+		for (int i=0; i<things.size(); i++)
+			if (thingDeathFlags.get(i) == Boolean.TRUE) {
+				things.remove(i);
+				thingDeathFlags.remove(i);
 				i--;
 			}
 
@@ -62,9 +86,14 @@ public class Game implements KeyListener, MouseListener {
 		over = true;
 	}
 
-	public void add(Actor a) {
-		actors.add(a);
+	public void addActor(Actor a) {
+		actorsToAdd.add(a);
 		actorDeathFlags.add(false);
+	}
+
+	public void addThing(Thing t) {
+		thingsToAdd.add(t);
+		thingDeathFlags.add(false);
 	}
 
 	public void mousePressed(MouseEvent e) {
