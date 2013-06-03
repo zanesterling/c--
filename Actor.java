@@ -9,7 +9,6 @@ public class Actor {
 	double vx, vy; //vx and vy are about velocity in the obvious way
 	double vt; //vt is a measure of how much of the player's t coordinate is observed to elapse per unit time in the actor's reference frame
 	
-	Weapon wep;
 	BufferedImage img;
 	int radius, health;
 
