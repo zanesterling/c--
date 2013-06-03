@@ -58,6 +58,12 @@ public class Actor {
 
 	public void collide(Actor actor) {}	
 
+	public void takeDamage(int damage) {
+		health -= damage;
+		if (health <= 0)
+			die();
+	}
+
 	public void die() {
 		for (int i=0; i<Main.game.actors.size(); i++)
 			if (this == Main.game.actors.get(i))
