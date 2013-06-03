@@ -2,7 +2,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.awt.Color;
 
-public abstract class Actor {
+public class Actor {
 
 	//coordinates
 	double x, y;

@@ -1,8 +1,13 @@
-public class Bullet extends Thing{
+public class Bullet extends Actor{
 
 	static final int DAMAGE = 5; //dummy value
 
-	public Bullet(double x, double y){ super(x,y); }
+	public Bullet(){ 
+		super(Main.game.player.x, Main.game.player.y); 
+	}
 
-	public void thingEffect(Actor a){ a.health -= DAMAGE; }
+	public void thingEffect(Actor a){ 
+		a.health -= DAMAGE; 
+	}
+
 }
