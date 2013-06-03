@@ -92,10 +92,13 @@ public class Main extends Canvas implements Runnable {
 
 	public static void main(String[] args) {
 		mainComponent = new Main();
+		mainComponent.addKeyListener(game);
+		mainComponent.addMouseListener(game);
 		
 		frame = new JFrame("Pert!");
 		frame.add(mainComponent);
 		frame.addKeyListener(game);
+		frame.addMouseListener(game);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
