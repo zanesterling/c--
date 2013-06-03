@@ -57,5 +57,7 @@ public class Player extends Actor{
 
 		if (Main.game.mouseDown)
 			weapon.attack();
+		else
+			weapon.recover();
 	}
 }

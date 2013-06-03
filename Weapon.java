@@ -5,12 +5,15 @@ public abstract class Weapon{
 		ammo;     // amount of remaining ammunition
 		
 	public void attack(){	// attack fxn, to be called by player
-		if(cooldown > 0)
-			cooldown--; 
-		else { 
+		if(cooldown == 0) {
 			cooldown = rof; 
 			doAttack();
 		}   	
+	}
+
+	public void recover() { //to be called when mouse not down
+		if (cooldown > 0)
+			cooldown--;
 	}
 
 	abstract void doAttack(); //specific to actual weapon (e.g. handgun, axe)- defines attack mechanic
