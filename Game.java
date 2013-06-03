@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.awt.event.*;
 
-public class Game implements KeyListener {
+public class Game implements KeyListener, MouseListener {
 
 	ArrayList<Actor> actors;
 	ArrayList<Boolean> actorDeathFlags;
@@ -10,6 +10,7 @@ public class Game implements KeyListener {
 
 	boolean[] keysPressed;
 	boolean shiftPressed;
+	boolean mouseDown;
 
 	boolean over;
 
@@ -31,6 +32,8 @@ public class Game implements KeyListener {
 
 		keysPressed = new boolean[4];
 		over = false;
+		mouseDown = false;
+
 		ticks = 0;
 	}
 
@@ -64,6 +67,14 @@ public class Game implements KeyListener {
 		actorDeathFlags.add(false);
 	}
 
+	public void mousePressed(MouseEvent e) {
+		mouseDown = true;
+	}
+
+	public void mouseReleased(MouseEvent e) {
+		mouseDown = false;
+	}
+
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 			case KeyEvent.VK_W: keysPressed[0] = true; break;
@@ -84,6 +95,9 @@ public class Game implements KeyListener {
 			case KeyEvent.VK_SHIFT: shiftPressed = false; break;
 		}
 	}
-
+	
+	public void mouseClicked(MouseEvent e) {}
+	public void mouseEntered(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {}
 	public void keyTyped(KeyEvent e) {}
 }
