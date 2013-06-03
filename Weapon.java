@@ -9,12 +9,10 @@ public abstract class Weapon{
 			cooldown--; 
 		else { 
 			cooldown = rof; 
-			doAtack();
+			doAttack();
 		}   	
 	}
 
-	abstract void doAttack(){
-
-	} //specific to actual weapon (e.g. handgun, axe)- defines attack mechanic
+	abstract void doAttack(); //specific to actual weapon (e.g. handgun, axe)- defines attack mechanic
 
 }
