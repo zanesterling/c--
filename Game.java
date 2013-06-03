@@ -44,6 +44,7 @@ public class Game implements KeyListener {
 			if (actorDeathFlags.get(i) == Boolean.TRUE) {
 				actors.remove(i);
 				actorDeathFlags.remove(i);
+				i--;
 			}
 
 		System.out.println(Math.sqrt(player.vx*player.vx + player.vy*player.vy));

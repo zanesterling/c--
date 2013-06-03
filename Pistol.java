@@ -2,12 +2,12 @@ public class Pistol extends Weapon{
 
 	public Pistol(double x, double y){
 		super(x, y);
-		_RoF = 1; //dummy values here
-		_ammo = 1;
-		_cooldown = 1;
+		rof = 1; //dummy values here
+		ammo = 1;
+		cooldown = 10;
 	}
 
 	public void doAttack(){
-		Main.game.actors.add(new Bullet
+
 	}
 }
