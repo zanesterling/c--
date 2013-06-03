@@ -1,0 +1,30 @@
+GENERAL IDEA
+Top-down swarm shooter incorporating the laws of special relativity.
+
+
+REPLICATING AN EXISTING GAME?
+Uhhh. Well, A Slower Speed of Light (from MIT Game Labs) was
+inspiration for the relativity part. Geometry wars is currently the
+desired theme for graphics.
+
+
+INCORPORATION OF APCS TOPICS
+It's written in Java.
+
+
+PROOF OF PRINCIPLE
+The game with all laws incorporated except for those involving photons
+and graphics / final polish. It might also not have all weapons and
+enemy classes completed.
+
+
+MAJOR COMPONENTS
+Laws of special relativity.
+Visual distortion and color shift.
+Actors and bullet violence.
+
+
+DIVISION OF LABOR / TASK DELEGATION
+Sebastian will be implementing the update() method for Actors, as it
+involves a thorough knowledge of special relativity.
+Otherwise, as needed.

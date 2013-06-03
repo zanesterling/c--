@@ -1,6 +1,6 @@
 public abstract class Weapon extends Thing{
 
-	private int _cooldown, // is decremented per tick; if = 0, player can attack. 
+	protected int _cooldown, // is decremented per tick; if = 0, player can attack. 
 				_RoF,      // the integer val cooldown is set to once a player attacks
 				_ammo;     // amount of remaining ammunition
 
