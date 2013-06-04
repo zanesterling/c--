@@ -1,7 +1,10 @@
+import java.awt.Color;
+
 public class SniperPickup extends Thing{
 
 	public SniperPickup(double x, double y){
 		super(x,y);
+		color = Color.BLUE;
 	}	
 
 	public void thingEffect(Actor act){

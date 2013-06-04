@@ -1,7 +1,10 @@
+import java.awt.Color;
+
 public class ShotgunPickup extends Thing{
 
 	public ShotgunPickup(double x, double y){
 		super(x,y);
+		color = Color.WHITE;
 	}	
 
 	public void thingEffect(Actor act){

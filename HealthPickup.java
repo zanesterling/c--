@@ -6,7 +6,7 @@ public class HealthPickup extends Thing{
 		
 	public HealthPickup(double x, double y){
 		super(x,y);
-		color = Color.PINK;
+		color = Color.RED;
 	}
 
 	public void thingEffect(Actor act){ 

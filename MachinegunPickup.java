@@ -1,7 +1,10 @@
+import java.awt.Color;
+
 public class MachinegunPickup extends Thing{
 
 	public MachinegunPickup(double x, double y){
 		super(x,y);
+		color = Color.GREEN;	
 	}	
 
 	public void thingEffect(Actor act){
