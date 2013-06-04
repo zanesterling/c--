@@ -66,8 +66,15 @@ public class Actor {
 
 	public void die() {
 		for (int i=0; i<Main.game.actors.size(); i++)
-			if (this == Main.game.actors.get(i))
+			if (this == Main.game.actors.get(i)){
 				Main.game.actorDeathFlags.set(i, true);
+				int random = (int)(Math.random() * 20);
+				if(random < 3){
+					if(random == 0) Main.game.addThing(new HealthPickup(this.x, this.y));
+					else if(random == 1) Main.game.addThing(new ShotgunPickup(this.x, this.y));
+					else Main.game.addThing(new MachinegunPickup(this.x, this.y));
+				}
+			}
 	}
 }
 
