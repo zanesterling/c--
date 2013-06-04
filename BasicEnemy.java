@@ -28,7 +28,7 @@ public class BasicEnemy extends Enemy {
 
 		super.update();
 
-		if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < radius + p.radius)
+		if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < Math.pow(radius + p.radius,2))
 			attack(p);
 	}
 

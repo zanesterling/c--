@@ -26,8 +26,7 @@ public class Game implements KeyListener {
 		player = new Player(0,0);
 		add(player);
 
-		for (int i=0; i<10; i++)
-			add(new BasicEnemy(200, 50*i - 225));
+		add(new BasicEnemy(200,150));
 
 		keysPressed = new boolean[4];
 		over = false;
@@ -35,8 +34,6 @@ public class Game implements KeyListener {
 	}
 
 	public void tick() {
-		if (ticks%100 == 0)
-			add(new BasicEnemy(0,100));
 		for (Actor a : actors)
 			a.update();
 

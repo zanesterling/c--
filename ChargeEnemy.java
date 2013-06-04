@@ -3,6 +3,8 @@ import java.util.ArrayList;
 //Acts like BasicEnemy, but charges in close range
 public class ChargeEnemy extends BasicEnemy {
 
+	static final double CHARGE_DIST = 100;
+
 	double accel;
 
 	public ChargeEnemy(double x, double y) {
@@ -17,12 +19,13 @@ public class ChargeEnemy extends BasicEnemy {
 		vy += accel * Math.sin(theta);
 
 		super.update();
-		if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < 20){
+		if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < Math.pow(CHARGE_DIST, 2)){
 			accel = 1.0;											//charges
-		if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < radius + p.radius)
-			attack(p);
-		}
-		else accel = 0.1;
+			if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < Math.pow(radius + p.radius,2))
+				attack(p);
+			System.out.println("charging");
+		} else 
+			accel = 0.1;
 	}
 
 }
