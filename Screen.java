@@ -10,6 +10,8 @@ public class Screen extends Bitmap {
 	Graphics g;
 
 	int size;
+	long lastMsgTick;
+	String message;
 
 	public Screen(int width, int height) {
 		super(width, height);
@@ -18,6 +20,8 @@ public class Screen extends Bitmap {
 		g = img.getGraphics();
 
 		size = 40;
+		lastMsgTick = -200;
+		message = "";
 	}
 
 	public void render(Game game) {
@@ -30,8 +34,9 @@ public class Screen extends Bitmap {
 			g.setColor(Color.RED);
 			g.setFont(new Font(Font.SERIF, Font.BOLD, 50));
 			g.drawString("GAME OVER", 450, 400);
-        } else {
+        } 
 
+        else {
             //draw things
             g.setColor(Color.BLUE);
             for (Thing t : game.things)
@@ -57,12 +62,21 @@ public class Screen extends Bitmap {
                 g.drawRect(i*(size+10) + size/2 - 5, height-size+5, 10, size-10);
                 g.drawRect(i*(size+10)+ 5, height-size + size/2 - 5, size-10, 10);
             }
-        }
+
+        
+
+       		if(Main.game.ticks - lastMsgTick < 100){
+				g.setColor(Color.RED);
+				g.setFont(new Font(Font.SERIF, Font.BOLD, 50));
+				g.drawString(message, 450, 400);
+       		}
+       	}
 
 		g.setColor(Color.WHITE);
 		g.setFont(new Font(Font.SERIF, Font.BOLD, 15));
 		g.drawString("C: " + (int) Main.game.c, 0, 20);
 		g.drawString("FPS: " + Main.fps, 0, 40);
+
 	}
 
 	public void vectorDraw(Thing t) {}
