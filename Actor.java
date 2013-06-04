@@ -74,6 +74,8 @@ public class Actor {
 						Main.game.addThing(new HealthPickup(this.x, this.y));
 					else if(random == 1)
 						Main.game.addThing(new ShotgunPickup(this.x, this.y));
+					else if(random == 2)
+						Main.game.addThing(new SniperPickup(this.x, this.y));
 					else Main.game.addThing(new MachinegunPickup(this.x, this.y));
 				}
 			}
