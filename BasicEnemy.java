@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.awt.Color;
 
 public class BasicEnemy extends Enemy {
 
@@ -17,6 +18,8 @@ public class BasicEnemy extends Enemy {
 		points.add(new int[]{0,-7});
 		points.add(new int[]{-7, 7});
 		points.add(new int[]{7, 7});
+
+		color = Color.RED;
 	}
 
 	public void update() {
@@ -28,7 +31,7 @@ public class BasicEnemy extends Enemy {
 
 		super.update();
 
-		if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < Math.pow(radius + p.radius,2))
+		if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < Math.pow(radius + p.radius, 2))
 			attack(p);
 	}
 

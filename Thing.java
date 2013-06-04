@@ -15,14 +15,8 @@ public abstract class Thing {
 	}     
 	
 	public void collide(Actor act) { 
-		if(
-		/* REMOVE THIS */
-		Math.sqrt(Math.pow(x - act.x, 2) + Math.pow(y - act.y, 2)) < radius ) //compares this thing's radius to distance between itself and act
+		if(Math.pow(x - act.x, 2) + Math.pow(y - act.y, 2) < Math.pow(radius + act.radius,2)) //compares this thing's radius to distance between itself and act
 			thingEffect(act);
-	}
-	
-	public void collide(Thing thing){
-	
 	}
 	
 	abstract void thingEffect(Actor act);	//effect of Thing's subclasses 

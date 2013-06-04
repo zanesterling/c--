@@ -1,15 +1,20 @@
 import java.util.ArrayList;
 import java.awt.event.*;
 
-public class Game implements KeyListener {
+public class Game implements KeyListener, MouseListener {
 
 	ArrayList<Actor> actors;
-	ArrayList<Boolean> actorDeathFlags;
 	ArrayList<Thing> things;
+	ArrayList<Boolean> actorDeathFlags;
+	ArrayList<Boolean> thingDeathFlags;
+	ArrayList<Actor> actorsToAdd;
+	ArrayList<Thing> thingsToAdd;
+
 	Player player;
 
 	boolean[] keysPressed;
 	boolean shiftPressed;
+	boolean mouseDown;
 
 	boolean over;
 
@@ -21,15 +26,21 @@ public class Game implements KeyListener {
 		c = 300000000;
 
 		actors = new ArrayList<Actor>();
-		actorDeathFlags = new ArrayList<Boolean>();
 		things = new ArrayList<Thing>();
+		actorsToAdd = new ArrayList<Actor>();
+		thingsToAdd = new ArrayList<Thing>();
+		actorDeathFlags = new ArrayList<Boolean>();
+		thingDeathFlags = new ArrayList<Boolean>();
+		
 		player = new Player(0,0);
-		add(player);
+		addActor(player);
 
-		add(new BasicEnemy(200,150));
+		addActor(new SplitEnemy(200,150));
 
 		keysPressed = new boolean[4];
 		over = false;
+		mouseDown = false;
+
 		ticks = 0;
 	}
 
@@ -37,13 +48,29 @@ public class Game implements KeyListener {
 		for (Actor a : actors)
 			a.update();
 
+		for (Actor a : actorsToAdd)
+			actors.add(a);
+		actorsToAdd = new ArrayList<Actor>();
+
+		for (Thing t : thingsToAdd)
+			things.add(t);
+		thingsToAdd = new ArrayList<Thing>();
+
 		for (int i=0; i<actors.size(); i++)
 			if (actorDeathFlags.get(i) == Boolean.TRUE) {
 				actors.remove(i);
 				actorDeathFlags.remove(i);
+				i--;
 			}
 
-		System.out.println(Math.sqrt(player.vx*player.vx + player.vy*player.vy));
+		for (int i=0; i<things.size(); i++)
+			if (thingDeathFlags.get(i) == Boolean.TRUE) {
+				things.remove(i);
+				thingDeathFlags.remove(i);
+				i--;
+			}
+
+		//System.out.println(Math.sqrt(player.vx*player.vx + player.vy*player.vy));
 
 		if (player.health <= 0)
 			end();
@@ -55,9 +82,22 @@ public class Game implements KeyListener {
 		over = true;
 	}
 
-	public void add(Actor a) {
-		actors.add(a);
+	public void addActor(Actor a) {
+		actorsToAdd.add(a);
 		actorDeathFlags.add(false);
+	}
+
+	public void addThing(Thing t) {
+		thingsToAdd.add(t);
+		thingDeathFlags.add(false);
+	}
+
+	public void mousePressed(MouseEvent e) {
+		mouseDown = true;
+	}
+
+	public void mouseReleased(MouseEvent e) {
+		mouseDown = false;
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -80,6 +120,9 @@ public class Game implements KeyListener {
 			case KeyEvent.VK_SHIFT: shiftPressed = false; break;
 		}
 	}
-
+	
+	public void mouseClicked(MouseEvent e) {}
+	public void mouseEntered(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {}
 	public void keyTyped(KeyEvent e) {}
 }
