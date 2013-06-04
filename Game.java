@@ -18,6 +18,8 @@ public class Game implements KeyListener, MouseListener {
 
 	boolean over;
 
+	double c; // This is the speed of light.
+	
 	int kills = 0;
 
 	long ticks;
@@ -27,6 +29,8 @@ public class Game implements KeyListener, MouseListener {
 	}
 
 	public void init() {
+		c = 300000000;
+
 		actors = new ArrayList<Actor>();
 		things = new ArrayList<Thing>();
 		actorsToAdd = new ArrayList<Actor>();
