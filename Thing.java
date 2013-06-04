@@ -12,6 +12,8 @@ public abstract class Thing {
 	public Thing(double x, double y) {
 		this.x = x;
 		this.y = y;
+
+		radius = 10;
 	}     
 	
 	public void collide(Actor act) { 

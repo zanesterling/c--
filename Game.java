@@ -19,6 +19,8 @@ public class Game implements KeyListener, MouseListener {
 	boolean over;
 
 	double c; // This is the speed of light.
+	
+	int kills;
 
 	long ticks;
 
@@ -41,6 +43,8 @@ public class Game implements KeyListener, MouseListener {
 		keysPressed = new boolean[4];
 		over = false;
 		mouseDown = false;
+
+		kills = 0;
 
 		ticks = 0;
 	}
