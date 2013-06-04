@@ -53,42 +53,44 @@ public class Game implements KeyListener, MouseListener {
 	}
 
 	public void tick() {
-		for (Actor a : actors)
-			a.update();
+		if (!over) {
+				for (Actor a : actors)
+					a.update();
 
-		for (Actor a : actorsToAdd)
-			actors.add(a);
-		actorsToAdd = new ArrayList<Actor>();
+				for (Actor a : actorsToAdd)
+					actors.add(a);
+				actorsToAdd = new ArrayList<Actor>();
 
-		for (Thing t : thingsToAdd)
-			things.add(t);
-		thingsToAdd = new ArrayList<Thing>();
+				for (Thing t : thingsToAdd)
+					things.add(t);
+				thingsToAdd = new ArrayList<Thing>();
 
-		for (int i=0; i<actors.size(); i++)
-			if (actorDeathFlags.get(i) == Boolean.TRUE) {
-				actors.remove(i);
-				actorDeathFlags.remove(i);
-				i--;
-			}
+				for (int i=0; i<actors.size(); i++)
+					if (actorDeathFlags.get(i) == Boolean.TRUE) {
+						actors.remove(i);
+						actorDeathFlags.remove(i);
+						i--;
+					}
 
-		for (int i=0; i<things.size(); i++)
-			if (thingDeathFlags.get(i) == Boolean.TRUE) {
-				things.remove(i);
-				thingDeathFlags.remove(i);
-				i--;
-			}
+				for (int i=0; i<things.size(); i++)
+					if (thingDeathFlags.get(i) == Boolean.TRUE) {
+						things.remove(i);
+						thingDeathFlags.remove(i);
+						i--;
+					}
 
-		//System.out.println(Math.sqrt(player.vx*player.vx + player.vy*player.vy));
+				//System.out.println(Math.sqrt(player.vx*player.vx + player.vy*player.vy));
 
-		if (player.health <= 0)
-			end();
+				if (player.health <= 0)
+					end();
 
-		if (actors.size() < 100) {
-			BasicEnemy.accel *= 1.2;
-			init();
+				if (actors.size() < 100) {
+					BasicEnemy.accel *= 1.2;
+					init();
+				}
+
+				ticks++;
 		}
-
-		ticks++;
 	}
 
 	public void end() {

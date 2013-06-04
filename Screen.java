@@ -31,14 +31,6 @@ public class Screen extends Bitmap {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
 
-		g.setColor(Color.WHITE);
-		for (int i=0; i*spacing <= width; i++)
-			for (int j=0; j*spacing <= height; j++) {
-				int x = i*spacing - (int)game.player.x % spacing;
-				int y = j*spacing - (int)game.player.y % spacing;
-				g.fillOval(x,y, 2,2);
-			}
-				
 
         if (game.over) {
 			g.setColor(Color.RED);
@@ -47,6 +39,14 @@ public class Screen extends Bitmap {
         } 
 
         else {
+			g.setColor(Color.WHITE);
+			for (int i=0; i*spacing <= width; i++)
+				for (int j=0; j*spacing <= height; j++) {
+					int x = i*spacing - (int)game.player.x % spacing;
+					int y = j*spacing - (int)game.player.y % spacing;
+					g.fillOval(x,y, 2,2);
+				}
+				
             //draw things
             for (Thing t : game.things) {
 				g.setColor(t.color);
@@ -77,18 +77,16 @@ public class Screen extends Bitmap {
         
 
        		if(Main.game.ticks - lastMsgTick < 100){
-				g.setColor(Color.RED);
-				g.setFont(new Font(Font.DIALOG, Font.BOLD, 50));
-				g.drawString(message, 450, 400);
+				g.setColor(Color.WHITE);
+				g.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
+				g.drawString(message, width - 20*message.length() + 40, 400);
        		}
        	}
 
 		g.setColor(Color.WHITE);
 		g.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-		g.drawString("C: " + (int) Main.game.c, 0, 20);
-		g.drawString("FPS: " + Main.fps, 0, 40);
-		g.drawString("HEALTH: " + Main.game.player.health, 1158, 20);
-		g.drawString("AMMO: " + Main.game.player.weapon.ammo, 1158, 40);
+		g.drawString("FPS: " + Main.fps, 0, 20);
+		g.drawString("AMMO: " + Main.game.player.weapon.ammo, 1158, 20);
 		g.drawString("CASUALTIES: " + Main.game.kills, 1100, 820);
 
 	}

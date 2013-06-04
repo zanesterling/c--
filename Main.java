@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 public class Main extends Canvas implements Runnable {
 
 	static final int WIDTH = 1250;
-	static final int HEIGHT = 900;
+	static final int HEIGHT = 850;
 	static final int FRAME_RATE = 30; //fps
 	static final int TICK_TIME = 1000 / FRAME_RATE;
 
