@@ -58,6 +58,10 @@ public class Screen extends Bitmap {
                 g.drawRect(i*(size+10)+ 5, height-size + size/2 - 5, size-10, 10);
             }
         }
+
+		g.setColor(Color.WHITE);
+		g.setFont(new Font(Font.SERIF, Font.BOLD, 15));
+		g.drawString("C: " + (int) Main.game.c, 0, 20);
 	}
 
 	public void vectorDraw(Thing t) {}
