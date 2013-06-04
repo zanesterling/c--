@@ -3,14 +3,16 @@ import java.awt.Point;
 
 public class Shotgun extends Weapon {
 
+	static final double SPREAD_ANGLE = 0.3;
+
 	boolean firedSinceClick;
 	boolean firedPastTick;
 
 	public Shotgun(){
 		super();
-		rof = 5; //dummy values here
+		rof = 20; //dummy values here
 		ammo = 1;
-		cooldown = 10;
+		cooldown = rof;
 
 		firedSinceClick = false;
 		firedPastTick = false;
@@ -36,11 +38,12 @@ public class Shotgun extends Weapon {
 		Point mouseLoc = MouseInfo.getPointerInfo().getLocation();
 		Player p = Main.game.player;
 		double theta = Math.atan2(mouseLoc.y - Main.screen.height/2, mouseLoc.x - Main.screen.width/2);
-		Main.game.addActor(new Bullet(theta - 0.1));
-		Main.game.addActor(new Bullet(theta - 0.05));
-		Main.game.addActor(new Bullet(theta));
-		Main.game.addActor(new Bullet(theta + 0.05));
-		Main.game.addActor(new Bullet(theta + 0.1));
+		if (firedPastTick)
+			for (int i=-2; i<2; i++)
+				Main.game.addActor(new Bullet(theta - SPREAD_ANGLE * (i + 0.5)));
+		else
+			for (int i=-2; i<3; i++)
+				Main.game.addActor(new Bullet(theta - SPREAD_ANGLE * i));
 		firedPastTick = true;
 	}
 }
