@@ -1,5 +1,6 @@
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.awt.Color;
 
 public abstract class Thing {
 
@@ -8,6 +9,8 @@ public abstract class Thing {
 
 	BufferedImage img;
 	ArrayList<int[]> points;
+
+	Color color;
 
 	public Thing(double x, double y) {
 		this.x = x;

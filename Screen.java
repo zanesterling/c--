@@ -38,12 +38,13 @@ public class Screen extends Bitmap {
 
         else {
             //draw things
-            g.setColor(Color.BLUE);
-            for (Thing t : game.things)
+            for (Thing t : game.things) {
+				g.setColor(t.color);
                 if (t.points != null)
                     vectorDraw(t);
                 else
                     circleDraw(t);
+			}
 
             //draw actors
             for (Actor a : game.actors) {

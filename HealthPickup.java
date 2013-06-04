@@ -1,9 +1,12 @@
+import java.awt.Color;
+
 public class HealthPickup extends Thing{
 
 	public static final int HEALTH = 1;
 		
 	public HealthPickup(double x, double y){
 		super(x,y);
+		color = Color.PINK;
 	}
 
 	public void thingEffect(Actor act){ 
