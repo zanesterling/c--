@@ -29,7 +29,7 @@ public class Pistol extends Weapon {
 	public void doAttack(){
 		Point mouseLoc = MouseInfo.getPointerInfo().getLocation();
 		Player p = Main.game.player;
-		double theta = Math.atan2(mouseLoc.y - p.y, mouseLoc.x - p.x);
+		double theta = Math.atan2(mouseLoc.y - Main.screen.height/2, mouseLoc.x - Main.screen.width/2);
 
 		Main.game.addActor(new Bullet(theta));
 	}
