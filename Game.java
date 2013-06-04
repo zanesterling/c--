@@ -35,7 +35,8 @@ public class Game implements KeyListener, MouseListener {
 		player = new Player(0,0);
 		addActor(player);
 
-		addActor(new SplitEnemy(200,150));
+		for (int i=0; i<1000; i++)
+			addActor(new BasicEnemy(Math.random()*1000, Math.random()*1000));
 
 		keysPressed = new boolean[4];
 		over = false;
