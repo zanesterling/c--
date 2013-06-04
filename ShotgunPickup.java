@@ -11,6 +11,7 @@ public class ShotgunPickup extends Thing{
 			else ((Player)act).weapon = new Shotgun();
 			Main.screen.message = "Shotgun +81";
 			Main.screen.lastMsgTick = Main.game.ticks;
+			die();
 		}
 	}
 }

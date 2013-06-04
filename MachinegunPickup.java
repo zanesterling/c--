@@ -11,6 +11,7 @@ public class MachinegunPickup extends Thing{
 			else ((Player)act).weapon = new MachineGun();
 			Main.screen.message = "Machinegun +100";
 			Main.screen.lastMsgTick = Main.game.ticks;
+			die();
 		}
 	}
 
