@@ -8,9 +8,11 @@ public class HealthPickup extends Thing{
 
 	public void thingEffect(Actor act){ 
 		if(act instanceof Player){
-			((Player)act).health += HEALTH; 
+			if(Main.game.player.health < 5)
+				((Player)act).health += HEALTH; 
 			Main.screen.message = "Health +1";
 			Main.screen.lastMsgTick = Main.game.ticks;
+			die();
 		}
 	}
 	

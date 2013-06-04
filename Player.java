@@ -11,7 +11,7 @@ public class Player extends Actor{
 
 	public Player(double x, double y){
 		super(x, y);
-    	health = 10; //dummy val
+    	health = 3; //dummy val
 		accelSpeed = 0.125;
 		shiftFactor = 0.3333;
 		//set weapon
