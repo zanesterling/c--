@@ -3,7 +3,7 @@ import java.awt.Color;
 
 public class BasicEnemy extends Enemy {
 
-	double accel;
+	static double accel;
 
 	public BasicEnemy(double x, double y) {
 		super(x,y);

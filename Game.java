@@ -20,11 +20,15 @@ public class Game implements KeyListener, MouseListener {
 
 	double c; // This is the speed of light.
 	
-	int kills;
+	int kills = 0;
 
 	long ticks;
 
 	public Game() {
+		init();
+	}
+
+	public void init() {
 		c = 300000000;
 
 		actors = new ArrayList<Actor>();
@@ -44,9 +48,8 @@ public class Game implements KeyListener, MouseListener {
 		over = false;
 		mouseDown = false;
 
-		kills = 0;
-
 		ticks = 0;
+
 	}
 
 	public void tick() {
@@ -79,6 +82,11 @@ public class Game implements KeyListener, MouseListener {
 
 		if (player.health <= 0)
 			end();
+
+		if (actors.size() < 100) {
+			BasicEnemy.accel *= 1.2;
+			init();
+		}
 
 		ticks++;
 	}
