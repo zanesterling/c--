@@ -22,7 +22,7 @@ public class Main extends Canvas implements Runnable {
 	BufferedImage img;
 	int[] pixels;
 
-	Screen screen;
+	static Screen screen;
 	static Game game;
 
 	static Main mainComponent;
