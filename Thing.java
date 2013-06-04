@@ -22,6 +22,12 @@ public abstract class Thing {
 	}
 	
 	abstract void thingEffect(Actor act);	//effect of Thing's subclasses 
+
+	public void die() {
+		for (int i=0; i<Main.game.things.size(); i++)
+			if (this == Main.game.things.get(i))
+				Main.game.thingDeathFlags.set(i,Boolean.TRUE);
+	}
 }
 
 
