@@ -13,6 +13,8 @@ public class Screen extends Bitmap {
 	long lastMsgTick;
 	String message;
 
+	int spacing = 50;
+
 	public Screen(int width, int height) {
 		super(width, height);
 		
@@ -25,10 +27,18 @@ public class Screen extends Bitmap {
 	}
 
 	public void render(Game game) {
-
 		//repaint background
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
+
+		g.setColor(Color.WHITE);
+		for (int i=0; i*spacing <= width; i++)
+			for (int j=0; j*spacing <= height; j++) {
+				int x = i*spacing - (int)game.player.x % spacing;
+				int y = j*spacing - (int)game.player.y % spacing;
+				g.fillOval(x,y, 2,2);
+			}
+				
 
         if (game.over) {
 			g.setColor(Color.RED);
