@@ -111,12 +111,19 @@ static Main mainComponent;
 		Scanner sc = new Scanner(new File("scores.txt"));
 		String[] names = new String[10];
 		int[] scores = new int[10];
+		int score = game.kills;
 
 		int i=0;
-		
-		Scanner stdin = new Scanner(System.in);
-		System.out.println("Enter your name.");
-		String name = next();
+		while (scores[i] < score)
+			i++;
+
+		if (i > 0) {
+			Scanner stdin = new Scanner(System.in);
+			System.out.println("Enter your name.");
+			String name = next();
+			FileWriter fw = new FileWriter("scores.txt", false);
+
+		}
 
 		System.out.println("Safe exit. Goodbye!");
 		System.exit(0);
