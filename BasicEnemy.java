@@ -29,6 +29,9 @@ public class BasicEnemy extends Enemy {
 		vx += accel * Math.cos(theta);
 		vy += accel * Math.sin(theta);
 
+		vx = p.vx + .999 * (vx - p.vx);
+		vy = p.vy + .999 * (vy - p.vy);
+
 		super.update();
 
 		if ((p.y-y)*(p.y-y) + (p.x-x)*(p.x-x) < Math.pow(radius + p.radius, 2))
