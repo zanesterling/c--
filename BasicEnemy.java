@@ -28,7 +28,6 @@ public class BasicEnemy extends Enemy {
 
 		vx += accel * Math.cos(theta);
 		vy += accel * Math.sin(theta);
-
 		vx = p.vx + .999 * (vx - p.vx);
 		vy = p.vy + .999 * (vy - p.vy);
 
