@@ -1,13 +1,36 @@
-public class Pistol extends Weapon{
+import java.awt.MouseInfo;
+import java.awt.Point;
 
-public Pistol(double x, double y){
-super(x, y);
-_RoF = 1; //dummy values here
-_ammo = 1;
-_cooldown = 1;
-}
+public class Pistol extends Weapon {
 
-public void thingEffect(Actor a){ /*implement*/ }
+	boolean firedSinceClick;
 
-public void attackType(){ /*implement*/ }
+	public Pistol(){
+		super();
+		rof = 1; //dummy values here
+		ammo = 1;
+		cooldown = 10;
+
+		firedSinceClick = false;
+	}
+
+	public void attack() {
+		if (!firedSinceClick) {
+			super.attack();
+			firedSinceClick = true;
+		}
+	}
+
+	public void recover() {
+		firedSinceClick = false;
+		super.recover();
+	}
+
+	public void doAttack(){
+		Point mouseLoc = MouseInfo.getPointerInfo().getLocation();
+		Player p = Main.game.player;
+		double theta = Math.atan2(mouseLoc.y - Main.screen.height/2, mouseLoc.x - Main.screen.width/2);
+
+		Main.game.addActor(new Bullet(theta));
+	}
 }

@@ -2,14 +2,13 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.awt.Color;
 
-public abstract class Actor {
+public class Actor {
 
 	//coordinates
 	double x, y;
 	double vx, vy; //vx and vy are about velocity in the obvious way
 	double vt; //vt is a measure of how much of the player's t coordinate is observed to elapse per unit time in the actor's reference frame
 	
-	Weapon wep;
 	BufferedImage img;
 	int radius, health;
 
@@ -58,6 +57,12 @@ public abstract class Actor {
 	}
 
 	public void collide(Actor actor) {}	
+
+	public void takeDamage(int damage) {
+		health -= damage;
+		if (health <= 0)
+			die();
+	}
 
 	public void die() {
 		for (int i=0; i<Main.game.actors.size(); i++)

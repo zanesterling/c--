@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 public class Main extends Canvas implements Runnable {
 
 	static final int WIDTH = 1250;
-	static final int HEIGHT = 950;
+	static final int HEIGHT = 900;
 
 	static JFrame frame;
 	Thread thread;
@@ -22,7 +22,7 @@ public class Main extends Canvas implements Runnable {
 	BufferedImage img;
 	int[] pixels;
 
-	Screen screen;
+	static Screen screen;
 	static Game game;
 
 	static Main mainComponent;
@@ -92,10 +92,13 @@ public class Main extends Canvas implements Runnable {
 
 	public static void main(String[] args) {
 		mainComponent = new Main();
+		mainComponent.addKeyListener(game);
+		mainComponent.addMouseListener(game);
 		
 		frame = new JFrame("Pert!");
 		frame.add(mainComponent);
 		frame.addKeyListener(game);
+		frame.addMouseListener(game);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

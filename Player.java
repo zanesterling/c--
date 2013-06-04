@@ -7,6 +7,8 @@ public class Player extends Actor{
 	double accelSpeed;
 	double shiftFactor;
 
+	Weapon weapon;
+
 	public Player(double x, double y){
 		super(x, y);
     	health = 10; //dummy val
@@ -23,6 +25,7 @@ public class Player extends Actor{
 		points.add(new int[]{8,-8});
 		
 		color = Color.RED;
+		weapon = new Pistol();
 	}
 
 	//performs player motion update given set of pressed keys
@@ -51,5 +54,10 @@ public class Player extends Actor{
 	public void update() {
 		keyMove(Main.game.keysPressed);
 		super.update();
+
+		if (Main.game.mouseDown)
+			weapon.attack();
+		else
+			weapon.recover();
 	}
 }
