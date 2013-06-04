@@ -62,6 +62,7 @@ public class Screen extends Bitmap {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font(Font.SERIF, Font.BOLD, 15));
 		g.drawString("C: " + (int) Main.game.c, 0, 20);
+		g.drawString("FPS: " + Main.fps, 0, 40);
 	}
 
 	public void vectorDraw(Thing t) {}

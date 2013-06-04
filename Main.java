@@ -14,6 +14,8 @@ public class Main extends Canvas implements Runnable {
 
 	static final int WIDTH = 1250;
 	static final int HEIGHT = 900;
+	static final int FRAME_RATE = 30; //fps
+	static final int TICK_TIME = 1000 / FRAME_RATE;
 
 	static JFrame frame;
 	Thread thread;
@@ -26,6 +28,7 @@ public class Main extends Canvas implements Runnable {
 	static Game game;
 
 	static Main mainComponent;
+	static long fps;
 
 	public Main() {
 		Dimension size = new Dimension(WIDTH, HEIGHT);
@@ -50,9 +53,27 @@ public class Main extends Canvas implements Runnable {
 
 	public void run() {
 		System.out.println("Starting successfully. Good luck!");
+		long lastTickTime = 0;
 		while (running) {
 			tick();
 			render();
+
+			//regulate framerate
+			long time = System.currentTimeMillis();
+			long tickTime = time - lastTickTime;
+			if (tickTime < TICK_TIME) {
+				try {
+					Thread.sleep(TICK_TIME - tickTime);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			} else 
+				System.out.println("WAH");
+			System.out.println(System.currentTimeMillis() - lastTickTime);
+
+			lastTickTime = time;
+			fps = 1000 / tickTime;
+			System.out.println(tickTime);
 		}
 	}
 
