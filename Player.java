@@ -25,7 +25,7 @@ public class Player extends Actor{
 		points.add(new int[]{8,-8});
 		
 		color = Color.RED;
-		weapon = new Pistol();
+		weapon = new Shotgun();
 	}
 
 	//performs player motion update given set of pressed keys
