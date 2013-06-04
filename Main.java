@@ -69,10 +69,10 @@ public class Main extends Canvas implements Runnable {
 				}
 			} else 
 				System.out.println("WAH");
-			System.out.println(System.currentTimeMillis() - lastTickTime);
 
-			lastTickTime = time;
-			fps = 1000 / tickTime;
+			fps = 1000 / (System.currentTimeMillis() - lastTickTime);
+
+			lastTickTime = System.currentTimeMillis();
 			System.out.println(tickTime);
 		}
 	}
