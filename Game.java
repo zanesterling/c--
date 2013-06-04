@@ -35,8 +35,7 @@ public class Game implements KeyListener, MouseListener {
 		player = new Player(0,0);
 		addActor(player);
 
-		for (int i=0; i<10; i++)
-			addActor(new BasicEnemy(200, 50*i - 225));
+		addActor(new SplitEnemy(200,150));
 
 		keysPressed = new boolean[4];
 		over = false;
@@ -46,9 +45,6 @@ public class Game implements KeyListener, MouseListener {
 	}
 
 	public void tick() {
-		if (ticks%100 == 0)
-			addActor(new BasicEnemy(0,100));
-
 		for (Actor a : actors)
 			a.update();
 
@@ -74,7 +70,7 @@ public class Game implements KeyListener, MouseListener {
 				i--;
 			}
 
-		System.out.println(Math.sqrt(player.vx*player.vx + player.vy*player.vy));
+		//System.out.println(Math.sqrt(player.vx*player.vx + player.vy*player.vy));
 
 		if (player.health <= 0)
 			end();
