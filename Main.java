@@ -107,6 +107,17 @@ static Main mainComponent;
 			e.printStackTrace();
 		}
 
+		System.out.println("Loading scores...");
+		Scanner sc = new Scanner(new File("scores.txt"));
+		String[] names = new String[10];
+		int[] scores = new int[10];
+
+		int i=0;
+		
+		Scanner stdin = new Scanner(System.in);
+		System.out.println("Enter your name.");
+		String name = next();
+
 		System.out.println("Safe exit. Goodbye!");
 		System.exit(0);
 	}
