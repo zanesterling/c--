@@ -76,8 +76,9 @@ public class Screen extends Bitmap {
 		g.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 		g.drawString("C: " + (int) Main.game.c, 0, 20);
 		g.drawString("FPS: " + Main.fps, 0, 40);
-		g.drawString("HEALTH: " + Main.game.player.health, 1164, 20);
-		g.drawString("AMMO: " + Main.game.player.weapon.ammo, 1178, 40);
+		g.drawString("HEALTH: " + Main.game.player.health, 1158, 20);
+		g.drawString("AMMO: " + Main.game.player.weapon.ammo, 1158, 40);
+		g.drawString("CASUALTIES: " + Main.game.kills, 1100, 820);
 
 	}
 
