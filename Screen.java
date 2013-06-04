@@ -32,7 +32,7 @@ public class Screen extends Bitmap {
 
         if (game.over) {
 			g.setColor(Color.RED);
-			g.setFont(new Font(Font.SERIF, Font.BOLD, 50));
+			g.setFont(new Font(Font.DIALOG, Font.BOLD, 50));
 			g.drawString("GAME OVER", 450, 400);
         } 
 
@@ -67,15 +67,17 @@ public class Screen extends Bitmap {
 
        		if(Main.game.ticks - lastMsgTick < 100){
 				g.setColor(Color.RED);
-				g.setFont(new Font(Font.SERIF, Font.BOLD, 50));
+				g.setFont(new Font(Font.DIALOG, Font.BOLD, 50));
 				g.drawString(message, 450, 400);
        		}
        	}
 
 		g.setColor(Color.WHITE);
-		g.setFont(new Font(Font.SERIF, Font.BOLD, 15));
+		g.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 		g.drawString("C: " + (int) Main.game.c, 0, 20);
 		g.drawString("FPS: " + Main.fps, 0, 40);
+		g.drawString("HEALTH: " + Main.game.player.health, 1164, 20);
+		g.drawString("AMMO: " + Main.game.player.weapon.ammo, 1178, 40);
 
 	}
 

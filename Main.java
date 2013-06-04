@@ -27,7 +27,7 @@ public class Main extends Canvas implements Runnable {
 	static Screen screen;
 	static Game game;
 
-	static Main mainComponent;
+static Main mainComponent;
 	static long fps;
 
 	public Main() {

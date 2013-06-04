@@ -7,7 +7,7 @@ public class MachineGun extends Weapon {
 	public MachineGun(){
 		super();
 		rof = 0; //dummy values here
-		ammo = 1;
+		ammo = 100;
 		cooldown = 0;
 	}
 
@@ -26,5 +26,8 @@ public class MachineGun extends Weapon {
 		Player p = Main.game.player;
 		double theta = Math.atan2(mouseLoc.y - Main.screen.height/2, mouseLoc.x - Main.screen.width/2);
 		Main.game.addActor(new Bullet(theta));
+		if(ammo == 0) 
+			Main.game.player.weapon = new Pistol();
+		else ammo--;
 	}
 }

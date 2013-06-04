@@ -11,8 +11,8 @@ public class Shotgun extends Weapon {
 	public Shotgun(){
 		super();
 		rof = 20; //dummy values here
-		ammo = 1;
-		cooldown = rof;
+		ammo = 81;
+		cooldown = 0;
 
 		firedSinceClick = false;
 		firedPastTick = false;
@@ -45,5 +45,8 @@ public class Shotgun extends Weapon {
 			for (int i=-2; i<3; i++)
 				Main.game.addActor(new Bullet(theta - SPREAD_ANGLE * i));
 		firedPastTick = true;
+		if(ammo == 0) 
+			Main.game.player.weapon = new Pistol();
+		else ammo -= 9;
 	}
 }

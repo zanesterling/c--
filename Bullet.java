@@ -4,7 +4,7 @@ public class Bullet extends Actor{
 
 	static final int MAXDIST = 800;
 	static final int DAMAGE = 1;
-	static final int SPEED = 10; //dummy value
+	static final int SPEED = 15; //dummy value
 
 	double theta;
 

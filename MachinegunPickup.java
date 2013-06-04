@@ -6,10 +6,12 @@ public class MachinegunPickup extends Thing{
 
 	public void thingEffect(Actor act){
 		if(act instanceof Player){
-			((Player)act).weapon = new MachineGun();
-			Main.screen.message = "+Machinegun";
+			if(((Player)act).weapon instanceof MachineGun) 
+				((Player)act).weapon.ammo += 100;
+			else ((Player)act).weapon = new MachineGun();
+			Main.screen.message = "Machinegun +100";
 			Main.screen.lastMsgTick = Main.game.ticks;
 		}
 	}
-	
+
 }

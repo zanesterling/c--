@@ -6,8 +6,10 @@ public class ShotgunPickup extends Thing{
 
 	public void thingEffect(Actor act){
 		if(act instanceof Player){
-			((Player)act).weapon = new Shotgun();
-			Main.screen.message = "+Shotgun";
+			if(((Player)act).weapon instanceof Shotgun) 
+				((Player)act).weapon.ammo += 81;
+			else ((Player)act).weapon = new Shotgun();
+			Main.screen.message = "Shotgun +81";
 			Main.screen.lastMsgTick = Main.game.ticks;
 		}
 	}
