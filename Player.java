@@ -24,7 +24,7 @@ public class Player extends Actor{
 		points.add(new int[]{-8,-8});
 		points.add(new int[]{8,-8});
 		
-		color = Color.RED;
+		color = Color.CYAN;
 		weapon = new Shotgun();
 	}
 
