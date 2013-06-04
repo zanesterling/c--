@@ -10,7 +10,7 @@ public class Shotgun extends Weapon {
 
 	public Shotgun(){
 		super();
-		rof = 20; //dummy values here
+		rof = 5; //dummy values here
 		ammo = 81;
 		cooldown = 0;
 
