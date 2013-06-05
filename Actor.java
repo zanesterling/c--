@@ -35,8 +35,6 @@ public class Actor {
 			collide(t);
 
 		//if the player has moved, warp this actor around it
-		if (this != p && p.dVx != 0 && p.dVy != 0)
-			updateVectors();
 	}
 
 	//warping function
