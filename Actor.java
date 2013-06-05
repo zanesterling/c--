@@ -33,21 +33,6 @@ public class Actor {
 			collide(a);
 		for (Thing t : Main.game.things)
 			collide(t);
-
-		//if the player has moved, warp this actor around it
-	}
-
-	//warping function
-	public void updateVectors() {
-		double dVx = Main.game.player.dVx;
-		double dVy = Main.game.player.dVy;
-		double[] v = Lorentz.transform(vt, vx, vy, dVx, dVy);
-		vt = v[0];
-		vx = v[1];
-		vy = v[2];
-		v = Lorentz.transform(0, x, y, dVx, dVy);
-		x = v[1];
-		y = v[2];
 	}
 
 	public void collide(Thing thing) {
