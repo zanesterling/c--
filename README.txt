@@ -1,4 +1,3 @@
-
     _/_/_/                          
  _/        _/_/_/_/_/  _/_/_/_/_/   
 _/                                  
@@ -47,6 +46,6 @@ W 			-	Move Up
 A 			-	Move Left
 S 			-	Move Down
 D 			-	Move Right
-Mouse		-	Aim	
-Rt. Mouse 	-	Firearm
-Lt. Mouse 	- 	Grenade
+Mouse			-	Aim	
+Rt. Mouse 		-	Firearm
+Lt. Mouse 		- 	Grenade
