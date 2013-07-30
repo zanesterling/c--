@@ -1,3 +1,4 @@
+_____________________________________________________________
 
     _/_/_/                          
  _/        _/_/_/_/_/  _/_/_/_/_/   
@@ -5,14 +6,13 @@ _/
  _/_/_/ 
 
 
-Instructions:
+Enter the following commands within a terminal, whilst in the
+directory containing c--. 
 
-1. Open a command line.
+Install:
+	javac *.java		
 
-2. Enter the directory containing c--.
+Play:
+	java Main		
 
-3. Enter "javac *.java" 
 
-4. Enter "java Main" [henceforth, only "java Main" is required to activate c--]
-
-	
