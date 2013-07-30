@@ -79,8 +79,6 @@ public class Game implements KeyListener, MouseListener {
 						i--;
 					}
 
-				//System.out.println(Math.sqrt(player.vx*player.vx + player.vy*player.vy));
-
 				if (player.health <= 0)
 					end();
 

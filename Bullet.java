@@ -32,7 +32,6 @@ public class Bullet extends Actor{
 		if (a != Main.game.player && !(a instanceof Bullet)) //make sure the bullet's not colliding with player or bullets
 			if (Math.pow(x-a.x,2) + Math.pow(y-a.y,2) < Math.pow(radius + a.radius,2)) { //distance check
 				a.takeDamage(DAMAGE);
-				System.out.println("splat " + Main.game.actors.size());
 				die();
 			}
 	}

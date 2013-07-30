@@ -67,13 +67,11 @@ static Main mainComponent;
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-			} else 
-				System.out.println("WAH");
+			} 
 
 			fps = 1000 / (System.currentTimeMillis() - lastTickTime);
 
 			lastTickTime = System.currentTimeMillis();
-			System.out.println(tickTime);
 		}
 	}
 
